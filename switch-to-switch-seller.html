@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سوییچ به سوییچ | فروشنده</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#06101d;color:#eef6ff;font-family:Tahoma,Arial,sans-serif}.app{max-width:500px;margin:auto;min-height:100vh;background:linear-gradient(#0b1728,#07111e)}
+header{padding:22px 18px;border-bottom:1px solid #1d344c;background:#0b1728}.logo{font-size:23px;font-weight:800}.logo b{color:#32a9ff}.sub{font-size:11px;color:#91a8bd;margin-top:6px}
+main{padding:16px 15px 35px}.card{background:#102034;border:1px solid #203c57;border-radius:18px;padding:17px;margin:12px 0}.hero{background:linear-gradient(135deg,#103b62,#102238)}h1{font-size:24px;margin:0 0 10px}.muted{font-size:13px;color:#9eb1c4;line-height:2}.title{font-size:17px;font-weight:800;margin:22px 2px 10px}
+.btn{width:100%;padding:14px;border:0;border-radius:12px;margin-top:11px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer}.primary{background:#1799ed;color:#fff}.secondary{background:#142b41;color:#dcecf9;border:1px solid #2b4963}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{padding:18px 10px;text-align:center;cursor:pointer}.icon{font-size:29px;display:block;margin-bottom:8px}
+label{display:block;color:#9eb2c4;font-size:12px;margin-top:13px}input,select,textarea{width:100%;padding:12px;margin-top:7px;background:#091727;border:1px solid #29455e;color:#fff;border-radius:10px;font-family:inherit}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px}.slot{padding:12px 4px;border:1px solid #294761;background:#0b1928;color:#c2d3e1;border-radius:10px;font-family:inherit}.slot.busy{opacity:.3;text-decoration:line-through}.slot.selected{background:#14547d;border-color:#32afff;color:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #1d3448;font-size:13px}.row:last-child{border:0}.badge{font-size:10px;padding:5px 8px;border-radius:8px;background:#164563;color:#70c7ff}
+.notice{background:#102f45;border:1px solid #236188;border-radius:11px;padding:12px;font-size:12px;line-height:1.9}
+.step{display:flex;gap:10px;align-items:flex-start;padding:10px 0}.stepnum{min-width:27px;height:27px;border-radius:50%;background:#14547d;text-align:center;padding-top:5px;font-size:11px}
+.hidden{display:none}
+</style>
+</head>
+<body><div class="app">
+<header><div class="logo">سوییچ <b>به</b> سوییچ</div><div class="sub">فروش خودرو | معاوضه خودرو</div></header>
+<main>
+
+<section id="start">
+<div class="card hero"><h1>خودروت رو بفروش یا معاوضه کن</h1><div class="muted">مشخصات خودرو را ثبت کن، زمان کارشناسی را انتخاب کن و بقیه مسیر را به تیم سوییچ به سوییچ بسپار.</div></div>
+<div class="title">چه کاری می‌خواهی انجام بدهی؟</div>
+<div class="grid">
+<div class="card choice" onclick="typeSelect('فروش خودرو')"><span class="icon">💰</span><b>فروش خودرو</b><div class="muted">برای فروش سریع و شفاف</div></div>
+<div class="card choice" onclick="typeSelect('معاوضه خودرو')"><span class="icon">🔄</span><b>معاوضه خودرو</b><div class="muted">خودروی فعلی در برابر انتخاب بعدی</div></div>
+</div>
+<div id="selected" class="notice hidden"></div>
+</section>
+
+<section id="form" class="hidden">
+<div class="title">۱. مشخصات مالک و خودرو</div>
+<div class="card">
+<label>نام و نام خانوادگی مالک<input id="name" placeholder="مثلاً علی رضایی"></label>
+<label>شماره موبایل<input placeholder="09xxxxxxxxx"></label>
+<label>برند خودرو<input placeholder="مثلاً ام‌وی‌ام"></label>
+<label>مدل خودرو<input placeholder="مثلاً X22"></label>
+<label>تیپ<input placeholder="مثلاً Sport Luxury"></label>
+<label>سال ساخت<input placeholder="۱۴۰۲"></label>
+<label>کارکرد<input placeholder="مثلاً ۱۴۰۰۰۰ کیلومتر"></label>
+<label>رنگ<input placeholder="مثلاً سفید"></label>
+<label>شماره پلاک<input placeholder="در صورت نیاز"></label>
+<label>وضعیت خودرو<textarea rows="3" placeholder="هر توضیحی که درباره خودرو لازم است"></textarea></label>
+<div id="exchangeExtra">
+<label>خودروی موردنظر برای معاوضه<input placeholder="مثلاً SUV اتوماتیک"></label>
+<label>مبلغ تکمیلی یا بودجه<input placeholder="مثلاً ۳۰۰ میلیون تومان"></label>
+</div>
+<button class="btn primary" onclick="goBooking()">ادامه: انتخاب زمان کارشناسی</button>
+</div>
+</section>
+
+<section id="booking" class="hidden">
+<div class="title">۲. رزرو کارشناسی</div>
+<div class="card">
+<div class="notice">کارشناس سوییچ به سوییچ برای رؤیت خودرو و کارشناسی حضوری اعزام می‌شود. بعد از ثبت درخواست، همکاران برای هماهنگی آدرس با شما تماس می‌گیرند.</div>
+<label>تاریخ موردنظر<input type="date"></label>
+<div class="title">ساعت موردنظر</div>
+<div class="slots">
+<button class="slot" onclick="pick(this)">۰۹:۰۰</button><button class="slot" onclick="pick(this)">۱۰:۰۰</button><button class="slot" onclick="pick(this)">۱۱:۰۰</button>
+<button class="slot" onclick="pick(this)">۱۲:۰۰</button><button class="slot" onclick="pick(this)">۱۳:۰۰</button><button class="slot busy">۱۴:۰۰</button>
+<button class="slot" onclick="pick(this)">۱۵:۰۰</button><button class="slot" onclick="pick(this)">۱۶:۰۰</button><button class="slot" onclick="pick(this)">۱۷:۰۰</button>
+</div>
+<button class="btn primary" onclick="submitRequest()">ثبت درخواست و رزرو</button>
+</div>
+</section>
+
+<section id="done" class="hidden">
+<div class="card hero"><h1>درخواست شما ثبت شد ✅</h1><div class="muted">درخواست شما با موفقیت ثبت شده است.</div></div>
+<div class="card">
+<div class="row"><span>کد پیگیری</span><b>STW-00126</b></div>
+<div class="row"><span>نوع درخواست</span><b id="doneType">فروش خودرو</b></div>
+<div class="row"><span>وضعیت</span><span class="badge">منتظر هماهنگی</span></div>
+</div>
+<div class="notice">همکاران سوییچ به سوییچ در اولین فرصت با شما تماس می‌گیرند، آدرس دقیق خودرو را دریافت می‌کنند و کارشناس اعزام می‌شود.</div>
+<div class="title">بعد از کارشناسی چه اتفاقی می‌افتد؟</div>
+<div class="card">
+<div class="step"><span class="stepnum">۱</span><div><b>کارشناسی حضوری</b><div class="muted">کارشناس خودرو را از نزدیک بررسی و گزارش را ثبت می‌کند.</div></div></div>
+<div class="step"><span class="stepnum">۲</span><div><b>بررسی مدارک</b><div class="muted">مدارک توسط تیم ما بررسی می‌شود.</div></div></div>
+<div class="step"><span class="stepnum">۳</span><div><b>دریافت پیشنهاد خرید</b><div class="muted">پیشنهادهای خرید برای شما بررسی می‌شوند.</div></div></div>
+<div class="step"><span class="stepnum">۴</span><div><b>ادامه فرآیند</b><div class="muted">در صورت تأیید شما، مراحل معامله ادامه پیدا می‌کند.</div></div></div>
+</div>
+</section>
+
+</main></div>
+<script>
+let requestType='فروش خودرو';
+function typeSelect(t){requestType=t;document.getElementById('selected').classList.remove('hidden');document.getElementById('selected').innerText='نوع درخواست انتخاب‌شده: '+t;document.getElementById('form').classList.remove('hidden');window.scrollTo(0,document.body.scrollHeight)}
+function goBooking(){document.getElementById('form').classList.add('hidden');document.getElementById('booking').classList.remove('hidden');window.scrollTo(0,0)}
+function pick(el){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('selected'));el.classList.add('selected')}
+function submitRequest(){document.getElementById('booking').classList.add('hidden');document.getElementById('done').classList.remove('hidden');document.getElementById('doneType').innerText=requestType;window.scrollTo(0,0)}
+</script>
+</body></html>
