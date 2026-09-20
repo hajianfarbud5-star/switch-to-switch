@@ -1,1608 +1,1278 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>سوییچ به سوییچ | معاوضه آسان و سریع خودرو</title>
 
 <style>
-
-*{
-box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-margin:0;
-background:#f3f7fb;
-font-family:Tahoma,Arial,sans-serif;
-color:#17384d;
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: #f4f8fc;
+  color: #172033;
 }
 
-.app{
-max-width:520px;
-margin:auto;
-min-height:100vh;
-background:white;
-box-shadow:0 0 25px rgba(0,0,0,.08);
+.app {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
 
-header{
-background:linear-gradient(135deg,#0b4770,#1598dc);
-color:white;
-padding:24px 20px;
+header {
+  background: linear-gradient(135deg, #0b2d50, #168bd1);
+  color: white;
+  padding: 28px 20px;
+  border-radius: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.12);
 }
 
-.logo{
-font-size:25px;
-font-weight:bold;
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-.logo span{
-color:#bdeaff;
+.subtitle {
+  font-size: 15px;
+  opacity: .95;
 }
 
-.sub{
-font-size:12px;
-margin-top:7px;
+.section {
+  background: white;
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.07);
 }
 
-main{
-padding:18px;
+.hero {
+  text-align: center;
+  padding: 10px 0 20px;
 }
 
-.card{
-background:white;
-border:1px solid #dfebf2;
-border-radius:17px;
-padding:18px;
-margin-bottom:14px;
-box-shadow:0 5px 18px rgba(20,60,90,.05);
+.hero h1 {
+  margin: 0 0 12px;
+  color: #0b2d50;
+  font-size: 27px;
 }
 
-.hero{
-background:#eef8ff;
+.hero p {
+  color: #667085;
+  line-height: 1.9;
 }
 
-h1{
-font-size:22px;
-line-height:1.8;
-margin:0 0 8px;
-color:#123f5e;
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
 }
 
-.muted{
-font-size:13px;
-line-height:2;
-color:#6a7e8d;
+.choice {
+  border: 2px solid #dce8f2;
+  border-radius: 18px;
+  padding: 25px 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: .2s;
+  background: #fff;
 }
 
-.title{
-font-size:16px;
-font-weight:bold;
-margin:20px 0 10px;
-color:#173f59;
+.choice:hover {
+  border-color: #168bd1;
+  transform: translateY(-2px);
 }
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
+.choice-icon {
+  font-size: 38px;
+  margin-bottom: 10px;
 }
 
-.choice{
-text-align:center;
-cursor:pointer;
+.choice-title {
+  font-weight: bold;
+  color: #0b2d50;
+  font-size: 18px;
 }
 
-.icon{
-font-size:32px;
-display:block;
-margin-bottom:8px;
+.choice-desc {
+  color: #777;
+  font-size: 13px;
+  margin-top: 7px;
 }
 
-.choice b{
-font-size:14px;
+.selected-type {
+  margin-top: 18px;
+  background: #eaf6ff;
+  color: #0b5b91;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  display: none;
 }
 
-label{
-display:block;
-font-size:12px;
-font-weight:bold;
-color:#60798a;
-margin-top:14px;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.field {
+  margin-bottom: 5px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #344054;
 }
 
 input,
 select,
-textarea{
-width:100%;
-margin-top:7px;
-padding:13px;
-border:1px solid #d7e4eb;
-border-radius:11px;
-background:#f8fbfd;
-font-family:inherit;
-font-size:13px;
-color:#17384d;
-outline:none;
+textarea {
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  border-radius: 11px;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  outline: none;
 }
 
 input:focus,
 select:focus,
-textarea:focus{
-border-color:#1599df;
-background:white;
+textarea:focus {
+  border-color: #168bd1;
+  box-shadow: 0 0 0 3px rgba(22,139,209,.1);
 }
 
-.btn{
-width:100%;
-border:0;
-border-radius:11px;
-padding:14px;
-margin-top:14px;
-font-family:inherit;
-font-size:14px;
-font-weight:bold;
-cursor:pointer;
+textarea {
+  min-height: 100px;
+  resize: vertical;
 }
 
-.primary{
-background:linear-gradient(135deg,#078bd5,#19a5ed);
-color:white;
+.exchange-box {
+  background: #f0f8ff;
+  border: 1px solid #cce8fa;
+  border-radius: 15px;
+  padding: 17px;
+  margin-top: 18px;
+  display: none;
 }
 
-.secondary{
-background:#eef6fb;
-color:#17628b;
-border:1px solid #cfe2ee;
+.exchange-title {
+  font-weight: bold;
+  color: #0b5b91;
+  margin-bottom: 15px;
 }
 
-.notice{
-background:#edf8ff;
-border:1px solid #c8e8f8;
-border-radius:11px;
-padding:12px;
-font-size:12px;
-line-height:2;
-color:#35647d;
+.button {
+  border: none;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0b2d50, #168bd1);
+  color: white;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
-.hidden{
-display:none;
+.button:hover {
+  opacity: .93;
 }
 
-.slots{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px;
-margin-top:10px;
+.secondary {
+  background: #eef2f6;
+  color: #344054;
+  margin-top: 10px;
 }
 
-.slot{
-border:1px solid #d4e2eb;
-background:#f8fbfd;
-border-radius:10px;
-padding:12px 4px;
-font-family:inherit;
-color:#31566e;
-cursor:pointer;
+.notice {
+  background: #f5f9fc;
+  border-right: 4px solid #168bd1;
+  padding: 13px;
+  border-radius: 10px;
+  line-height: 1.8;
+  color: #475467;
+  margin-bottom: 18px;
 }
 
-.slot.selected{
-background:#dff3ff;
-border-color:#159be7;
-color:#0874aa;
-font-weight:bold;
+.calendar-box {
+  margin-top: 15px;
 }
 
-.slot.busy{
-opacity:.35;
-cursor:not-allowed;
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.calendar{
-margin-top:8px;
-border:1px solid #d8e4ec;
-border-radius:14px;
-overflow:hidden;
-background:white;
+.calendar-header button {
+  border: none;
+  background: #eaf6ff;
+  color: #0b5b91;
+  border-radius: 9px;
+  padding: 8px 13px;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.calendar-top{
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:linear-gradient(135deg,#0b4770,#1598dc);
-color:white;
-padding:11px;
+.calendar-title {
+  font-weight: bold;
+  color: #0b2d50;
 }
 
-.calendar-top button{
-border:0;
-background:rgba(255,255,255,.2);
-color:white;
-width:35px;
-height:35px;
-border-radius:8px;
-font-size:20px;
-cursor:pointer;
+.weekdays,
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
 }
 
-.calendar-title{
-font-size:14px;
-font-weight:bold;
+.weekday {
+  text-align: center;
+  color: #667085;
+  font-size: 12px;
+  padding: 7px 0;
 }
 
-.weekdays{
-display:grid;
-grid-template-columns:repeat(7,1fr);
-background:#f3f7fa;
+.day {
+  border: 1px solid #e0e6ec;
+  background: white;
+  border-radius: 9px;
+  padding: 10px 4px;
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.weekdays div{
-text-align:center;
-font-size:9px;
-font-weight:bold;
-padding:8px 1px;
-color:#708392;
+.day:hover {
+  border-color: #168bd1;
+  background: #f0f8ff;
 }
 
-.days{
-display:grid;
-grid-template-columns:repeat(7,1fr);
-gap:4px;
-padding:8px;
+.day.selected {
+  background: #168bd1;
+  color: white;
+  border-color: #168bd1;
 }
 
-.day{
-border:0;
-background:#f7fafc;
-border-radius:8px;
-min-height:36px;
-font-family:inherit;
-font-size:12px;
-color:#294d63;
-cursor:pointer;
+.day.empty {
+  border: none;
+  background: transparent;
+  cursor: default;
 }
 
-.day:hover{
-background:#dff3ff;
+.selected-date {
+  margin-top: 15px;
+  background: #eaf6ff;
+  color: #0b5b91;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  display: none;
 }
 
-.day.selected{
-background:#1598dc;
-color:white;
-font-weight:bold;
+.times {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-top: 15px;
 }
 
-.selected-date{
-margin-top:9px;
-background:#edf8ff;
-border:1px solid #c8e8f8;
-border-radius:10px;
-padding:10px;
-text-align:center;
-font-size:12px;
-font-weight:bold;
-color:#17628b;
+.time {
+  border: 1px solid #d0d5dd;
+  background: white;
+  border-radius: 10px;
+  padding: 11px;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
 }
 
-.success{
-text-align:center;
-padding:15px;
+.time:hover {
+  border-color: #168bd1;
 }
 
-.success-icon{
-font-size:50px;
+.time.selected {
+  background: #0b2d50;
+  color: white;
+  border-color: #0b2d50;
 }
 
-.row{
-display:flex;
-justify-content:space-between;
-gap:10px;
-padding:10px 0;
-border-bottom:1px solid #e7eef3;
-font-size:12px;
+.time:disabled {
+  background: #f2f4f7;
+  color: #98a2b3;
+  cursor: not-allowed;
 }
 
-.row:last-child{
-border-bottom:0;
+.done {
+  text-align: center;
 }
 
-.badge{
-background:#e4f6ff;
-color:#0877ae;
-padding:5px 8px;
-border-radius:7px;
-font-size:10px;
-font-weight:bold;
+.success-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: #e8f8ef;
+  color: #16a05d;
+  font-size: 42px;
+  line-height: 75px;
+  margin: 0 auto 18px;
 }
 
-.step{
-display:flex;
-gap:10px;
-padding:12px 0;
-border-bottom:1px solid #edf1f4;
+.tracking {
+  background: #0b2d50;
+  color: white;
+  border-radius: 13px;
+  padding: 17px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 18px 0;
 }
 
-.step:last-child{
-border-bottom:0;
+.info-line {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
 }
 
-.step-number{
-min-width:28px;
-height:28px;
-border-radius:50%;
-background:#1598dc;
-color:white;
-text-align:center;
-padding-top:6px;
-font-size:11px;
-font-weight:bold;
+.status {
+  display: inline-block;
+  background: #fff4d6;
+  color: #936b00;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-top: 12px;
 }
 
-.footer{
-text-align:center;
-color:#91a0ab;
-font-size:11px;
-padding:20px 0;
+.error-box {
+  display: none;
+  background: #fff0f0;
+  color: #b42318;
+  border: 1px solid #f5c2c0;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 15px;
+  line-height: 1.8;
 }
 
+.loading {
+  opacity: .7;
+  pointer-events: none;
+}
+
+@media(max-width:650px) {
+  .choices,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .times {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .app {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+}
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="app">
 
-
 <header>
-
-<div class="logo">
-سوییچ <span>به</span> سوییچ
-</div>
-
-<div class="sub">
-معاوضه آسان و سریع خودرو با امنیت و شفافیت
-</div>
-
+  <div class="logo">سوییچ به سوییچ</div>
+  <div class="subtitle">معاوضه آسان و سریع خودرو با امنیت و شفافیت</div>
 </header>
 
+<!-- START -->
+<section class="section" id="start">
+
+  <div class="hero">
+    <h1>خودرویت را راحت‌تر معاوضه کن</h1>
+    <p>
+      نوع درخواست خود را انتخاب کنید تا اطلاعات خودرو و زمان کارشناسی را ثبت کنیم.
+    </p>
+  </div>
+
+  <div class="choices">
+
+    <div class="choice" onclick="chooseType('فروش خودرو')">
+      <div class="choice-icon">🚘</div>
+      <div class="choice-title">فروش خودرو</div>
+      <div class="choice-desc">ثبت درخواست فروش خودرو</div>
+    </div>
+
+    <div class="choice" onclick="chooseType('معاوضه خودرو')">
+      <div class="choice-icon">🔄</div>
+      <div class="choice-title">معاوضه خودرو</div>
+      <div class="choice-desc">معاوضه آسان و سریع خودرو</div>
+    </div>
+
+  </div>
+
+  <div class="selected-type" id="selectedType"></div>
+
+</section>
+
+
+<!-- FORM -->
+<section class="section" id="form" style="display:none">
+
+  <h2>اطلاعات خودرو</h2>
+
+  <div class="form-grid">
+
+    <div class="field">
+      <label>نام و نام خانوادگی</label>
+      <input id="name" type="text" placeholder="مثلاً فرهاد حاجیان">
+    </div>
+
+    <div class="field">
+      <label>شماره تماس</label>
+      <input id="phone" type="tel" placeholder="09xxxxxxxxx">
+    </div>
+
+    <div class="field">
+      <label>برند خودرو</label>
+      <select id="brand" onchange="loadModels()">
+        <option value="">انتخاب برند</option>
+        <option value="ایران خودرو">ایران خودرو</option>
+        <option value="سایپا">سایپا</option>
+        <option value="مدیران خودرو">مدیران خودرو</option>
+        <option value="کرمان موتور">کرمان موتور</option>
+        <option value="بهمن موتور">بهمن موتور</option>
+        <option value="فونیکس">فونیکس</option>
+        <option value="چری">چری</option>
+        <option value="ام وی ام">ام وی ام</option>
+        <option value="جک">جک</option>
+        <option value="هیوندای">هیوندای</option>
+        <option value="کیا">کیا</option>
+        <option value="تویوتا">تویوتا</option>
+        <option value="نیسان">نیسان</option>
+        <option value="بنز">بنز</option>
+        <option value="بی ام و">بی ام و</option>
+        <option value="آئودی">آئودی</option>
+        <option value="رنو">رنو</option>
+        <option value="پژو">پژو</option>
+        <option value="سایر">سایر</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>مدل خودرو</label>
+      <select id="model">
+        <option value="">ابتدا برند را انتخاب کنید</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>سال</label>
+      <select id="year">
+        <option value="">انتخاب سال</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>تیپ</label>
+      <input id="trim" type="text" placeholder="مثلاً اتوماتیک">
+    </div>
+
+    <div class="field">
+      <label>کارکرد</label>
+      <input id="km" type="text" placeholder="مثلاً 125000" oninput="formatKm(this)">
+    </div>
+
+    <div class="field">
+      <label>رنگ</label>
+      <select id="color">
+        <option value="">انتخاب رنگ</option>
+        <option>سفید</option>
+        <option>مشکی</option>
+        <option>نقره‌ای</option>
+        <option>خاکستری</option>
+        <option>نوک‌مدادی</option>
+        <option>آبی</option>
+        <option>قرمز</option>
+        <option>قهوه‌ای</option>
+        <option>سایر</option>
+      </select>
+    </div>
 
-<main>
+    <div class="field full">
+      <label>توضیحات خودرو</label>
+      <textarea id="condition" placeholder="توضیحات، ایرادات، وضعیت بدنه و موارد مهم خودرو..."></textarea>
+    </div>
 
+  </div>
 
-<div id="start">
 
+  <!-- EXCHANGE -->
+  <div class="exchange-box" id="exchangeBox">
 
-<div class="card hero">
+    <div class="exchange-title">
+      خودروی مورد نظر برای معاوضه
+    </div>
 
-<h1>
-خودروت رو بفروش یا معاوضه کن
-</h1>
+    <div class="form-grid">
 
-<div class="muted">
-مشخصات خودروت رو ثبت کن؛ تیم سوییچ به سوییچ ادامه مسیر رو با امنیت، شفافیت و سرعت پیگیری می‌کنه.
-</div>
+      <div class="field">
+        <label>برند خودروی مورد نظر</label>
+        <input id="wantedBrand" type="text" placeholder="مثلاً تویوتا">
+      </div>
 
-</div>
+      <div class="field">
+        <label>خودروی مورد نظر</label>
+        <input id="wantedCar" type="text" placeholder="مثلاً کرولا">
+      </div>
 
+      <div class="field full">
+        <label>بودجه تکمیلی</label>
+        <input id="budget" type="text" placeholder="مثلاً 500 میلیون تومان">
+      </div>
 
-<div class="title">
-چه خدمتی می‌خواهی؟
-</div>
+    </div>
 
+  </div>
 
-<div class="grid">
+  <button class="button" onclick="goBooking()">
+    ادامه و انتخاب زمان کارشناسی
+  </button>
 
+</section>
 
-<div class="card choice" onclick="chooseType('فروش خودرو')">
 
-<span class="icon">🚗</span>
+<!-- BOOKING -->
+<section class="section" id="booking" style="display:none">
 
-<b>فروش خودرو</b>
+  <h2>انتخاب زمان کارشناسی</h2>
 
-<div class="muted">
-برای فروش سریع و شفاف
-</div>
+  <div class="notice">
+    لطفاً تاریخ و ساعت مناسب خود را برای کارشناسی خودرو انتخاب کنید.
+  </div>
 
-</div>
+  <div class="calendar-box">
 
+    <div class="calendar-header">
+      <button onclick="changeMonth(-1)">ماه قبل</button>
+      <div class="calendar-title" id="calendarTitle"></div>
+      <button onclick="changeMonth(1)">ماه بعد</button>
+    </div>
 
-<div class="card choice" onclick="chooseType('معاوضه خودرو')">
+    <div class="weekdays">
+      <div class="weekday">ش</div>
+      <div class="weekday">ی</div>
+      <div class="weekday">د</div>
+      <div class="weekday">س</div>
+      <div class="weekday">چ</div>
+      <div class="weekday">پ</div>
+      <div class="weekday">ج</div>
+    </div>
 
-<span class="icon">🔄</span>
+    <div class="calendar" id="calendar"></div>
 
-<b>معاوضه خودرو</b>
+  </div>
 
-<div class="muted">
-خودروی فعلی در برابر خودروی موردنظر
-</div>
+  <div class="selected-date" id="selectedDate"></div>
 
-</div>
+  <h3>انتخاب ساعت</h3>
 
+  <div class="times">
 
-</div>
+    <button class="time" onclick="selectTime(this,'09:00')">09:00</button>
+    <button class="time" onclick="selectTime(this,'10:00')">10:00</button>
+    <button class="time" onclick="selectTime(this,'11:00')">11:00</button>
+    <button class="time" onclick="selectTime(this,'12:00')">12:00</button>
+    <button class="time" onclick="selectTime(this,'13:00')">13:00</button>
+    <button class="time" disabled>14:00</button>
+    <button class="time" onclick="selectTime(this,'15:00')">15:00</button>
+    <button class="time" onclick="selectTime(this,'16:00')">16:00</button>
+    <button class="time" onclick="selectTime(this,'17:00')">17:00</button>
 
+  </div>
 
-<div id="selectedType" class="notice hidden"></div>
+  <div class="error-box" id="errorBox"></div>
 
+  <button class="button" id="submitButton" onclick="submitRequest()">
+    ثبت نهایی درخواست
+  </button>
 
-</div>
+  <button class="button secondary" onclick="backForm()">
+    بازگشت
+  </button>
 
+</section>
 
 
-<div id="form" class="hidden">
+<!-- DONE -->
+<section class="section done" id="done" style="display:none">
 
+  <div class="success-icon">✓</div>
 
-<div class="title">
-۱. اطلاعات شما و خودرو
-</div>
+  <h2>درخواست شما با موفقیت ثبت شد</h2>
 
+  <p>
+    درخواست شما در سیستم سوییچ به سوییچ ثبت شد.
+  </p>
 
-<div class="card">
+  <div class="tracking" id="tracking"></div>
 
+  <div class="info-line">
+    <span>نوع درخواست</span>
+    <strong id="doneType"></strong>
+  </div>
 
-<label>
-نام و نام خانوادگی
+  <div class="info-line">
+    <span>تاریخ کارشناسی</span>
+    <strong id="doneDate"></strong>
+  </div>
 
-<input id="name" placeholder="مثلاً علی رضایی">
+  <div class="info-line">
+    <span>ساعت کارشناسی</span>
+    <strong id="doneTime"></strong>
+  </div>
 
-</label>
+  <div class="status">
+    در انتظار بررسی
+  </div>
 
+  <p style="line-height:2;margin-top:20px">
+    کارشناسان سوییچ به سوییچ اطلاعات درخواست شما را بررسی کرده و برای هماهنگی با شما تماس خواهند گرفت.
+  </p>
 
-<label>
-شماره موبایل
+  <button class="button" onclick="location.reload()">
+    ثبت درخواست جدید
+  </button>
 
-<input
-id="phone"
-type="tel"
-inputmode="numeric"
-placeholder="09xxxxxxxxx"
->
-
-</label>
-
-
-<label>
-برند خودرو
-
-<select id="brand" onchange="loadModels()">
-
-<option value="">انتخاب برند</option>
-
-<option>ایران خودرو</option>
-<option>سایپا</option>
-<option>مدیران خودرو</option>
-<option>کرمان موتور</option>
-<option>بهمن موتور</option>
-<option>کیا</option>
-<option>هیوندای</option>
-<option>تویوتا</option>
-<option>نیسان</option>
-<option>مزدا</option>
-<option>رنو</option>
-<option>پژو</option>
-<option>ام وی ام</option>
-<option>جک</option>
-<option>فونیکس</option>
-<option>چری</option>
-<option>سایر</option>
-
-</select>
-
-</label>
-
-
-<label>
-مدل خودرو
-
-<select id="model">
-
-<option value="">
-ابتدا برند را انتخاب کنید
-</option>
-
-</select>
-
-</label>
-
-
-<label>
-سال ساخت
-
-<select id="year">
-
-<option value="">انتخاب سال ساخت</option>
-
-<option>۱۴۰۵</option>
-<option>۱۴۰۴</option>
-<option>۱۴۰۳</option>
-<option>۱۴۰۲</option>
-<option>۱۴۰۱</option>
-<option>۱۴۰۰</option>
-<option>۱۳۹۹</option>
-<option>۱۳۹۸</option>
-<option>۱۳۹۷</option>
-<option>۱۳۹۶</option>
-<option>۱۳۹۵</option>
-<option>۱۳۹۴</option>
-<option>۱۳۹۳</option>
-<option>۱۳۹۲</option>
-<option>۱۳۹۱</option>
-<option>۱۳۹۰</option>
-<option>۱۳۸۹</option>
-<option>۱۳۸۸</option>
-<option>۱۳۸۷</option>
-<option>۱۳۸۶</option>
-<option>۱۳۸۵</option>
-<option>۱۳۸۴</option>
-<option>۱۳۸۳</option>
-<option>۱۳۸۲</option>
-<option>۱۳۸۱</option>
-<option>۱۳۸۰</option>
-
-</select>
-
-</label>
-
-
-<label>
-تیپ خودرو
-
-<select id="trim">
-
-<option value="">انتخاب تیپ</option>
-
-<option>دنده‌ای</option>
-<option>اتوماتیک</option>
-<option>توربو</option>
-<option>اتوماتیک توربو</option>
-<option>فول</option>
-<option>نیمه فول</option>
-<option>ساده</option>
-<option>سایر</option>
-
-</select>
-
-</label>
-
-
-<label>
-کارکرد خودرو
-
-<input
-id="km"
-inputmode="numeric"
-placeholder="مثلاً 125,000"
-oninput="formatKm(this)"
->
-
-</label>
-
-
-<label>
-رنگ خودرو
-
-<select id="color">
-
-<option value="">انتخاب رنگ</option>
-
-<option>سفید</option>
-<option>مشکی</option>
-<option>نقره‌ای</option>
-<option>خاکستری</option>
-<option>آبی</option>
-<option>قرمز</option>
-<option>سرمه‌ای</option>
-<option>قهوه‌ای</option>
-<option>طلایی</option>
-<option>سبز</option>
-<option>سایر</option>
-
-</select>
-
-</label>
-
-
-<label>
-توضیحات خودرو
-
-<textarea
-id="condition"
-rows="3"
-placeholder="توضیحات مهم درباره خودرو، تصادف، رنگ، وضعیت فنی و..."
-></textarea>
-
-</label>
-
-
-<div id="exchangeBox">
-
-
-<div class="title">
-خودروی موردنظر برای معاوضه
-</div>
-
-
-<label>
-برند خودروی موردنظر
-
-<select id="wantedBrand">
-
-<option value="">انتخاب برند</option>
-
-<option>ایران خودرو</option>
-<option>سایپا</option>
-<option>مدیران خودرو</option>
-<option>کرمان موتور</option>
-<option>بهمن موتور</option>
-<option>کیا</option>
-<option>هیوندای</option>
-<option>تویوتا</option>
-<option>نیسان</option>
-<option>مزدا</option>
-<option>رنو</option>
-<option>پژو</option>
-<option>ام وی ام</option>
-<option>جک</option>
-<option>فونیکس</option>
-<option>چری</option>
-
-</select>
-
-</label>
-
-
-<label>
-مدل موردنظر
-
-<input
-id="wantedCar"
-placeholder="مثلاً تویوتا کرولا"
->
-
-</label>
-
-
-<label>
-مبلغ تکمیلی
-
-<input
-id="budget"
-placeholder="مثلاً ۳۰۰ میلیون تومان"
->
-
-</label>
-
+</section>
 
 </div>
-
-
-<button
-class="btn primary"
-onclick="goBooking()"
->
-
-ادامه و انتخاب زمان کارشناسی
-
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<div id="booking" class="hidden">
-
-
-<div class="title">
-۲. زمان کارشناسی
-</div>
-
-
-<div class="card">
-
-
-<div class="notice">
-
-کارشناس سوییچ به سوییچ برای بررسی حضوری خودرو هماهنگ می‌شود. پس از ثبت درخواست، همکاران ما برای هماهنگی آدرس با شما تماس می‌گیرند.
-
-</div>
-
-
-<label>
-
-تاریخ موردنظر
-
-<div id="calendar" class="calendar"></div>
-
-<div id="selectedDate" class="selected-date">
-لطفاً تاریخ کارشناسی را انتخاب کنید.
-</div>
-
-</label>
-
-
-<div class="title">
-ساعت موردنظر
-</div>
-
-
-<div class="slots">
-
-
-<button class="slot" onclick="selectTime(this)">
-۰۹:۰۰
-</button>
-
-<button class="slot" onclick="selectTime(this)">
-۱۰:۰۰
-</button>
-
-<button class="slot" onclick="selectTime(this)">
-۱۱:۰۰
-</button>
-
-<button class="slot" onclick="selectTime(this)">
-۱۲:۰۰
-</button>
-
-<button class="slot" onclick="selectTime(this)">
-۱۳:۰۰
-</button>
-
-<button class="slot busy" disabled>
-۱۴:۰۰
-</button>
-
-<button class="slot" onclick="selectTime(this)">
-۱۵:۰۰
-</button>
-
-<button class="slot" onclick="selectTime(this)">
-۱۶:۰۰
-</button>
-
-<button class="slot" onclick="selectTime(this)">
-۱۷:۰۰
-</button>
-
-
-</div>
-
-
-<button
-class="btn primary"
-onclick="submitRequest()"
->
-ثبت درخواست
-</button>
-
-
-<button
-class="btn secondary"
-onclick="backForm()"
->
-بازگشت
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<div id="done" class="hidden">
-
-
-<div class="card success">
-
-<div class="success-icon">
-✅
-</div>
-
-<h1>
-درخواست شما ثبت شد
-</h1>
-
-<div class="muted">
-درخواست شما با موفقیت ثبت شد و همکاران سوییچ به سوییچ برای هماهنگی با شما تماس می‌گیرند.
-</div>
-
-</div>
-
-
-<div class="card">
-
-
-<div class="row">
-
-<span>کد پیگیری</span>
-
-<b id="tracking"></b>
-
-</div>
-
-
-<div class="row">
-
-<span>نوع درخواست</span>
-
-<b id="doneType"></b>
-
-</div>
-
-
-<div class="row">
-
-<span>تاریخ کارشناسی</span>
-
-<b id="doneDate"></b>
-
-</div>
-
-
-<div class="row">
-
-<span>ساعت کارشناسی</span>
-
-<b id="doneTime"></b>
-
-</div>
-
-
-<div class="row">
-
-<span>وضعیت</span>
-
-<span class="badge">
-منتظر هماهنگی
-</span>
-
-</div>
-
-
-</div>
-
-
-<div class="card">
-
-
-<div class="title">
-مراحل بعدی
-</div>
-
-
-<div class="step">
-
-<div class="step-number">۱</div>
-
-<div>
-
-<b>هماهنگی با شما</b>
-
-<div class="muted">
-برای دریافت آدرس و هماهنگی کارشناسی با شما تماس می‌گیریم.
-</div>
-
-</div>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">۲</div>
-
-<div>
-
-<b>کارشناسی خودرو</b>
-
-<div class="muted">
-خودرو از نظر بدنه و وضعیت فنی بررسی می‌شود.
-</div>
-
-</div>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">۳</div>
-
-<div>
-
-<b>ارزیابی و پیشنهاد</b>
-
-<div class="muted">
-ارزش خودرو و شرایط معامله بررسی می‌شود.
-</div>
-
-</div>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">۴</div>
-
-<div>
-
-<b>ادامه معامله</b>
-
-<div class="muted">
-در صورت تأیید شما، مراحل معامله و معاوضه ادامه پیدا می‌کند.
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<button
-class="btn secondary"
-onclick="location.reload()"
->
-ثبت درخواست جدید
-</button>
-
-
-</div>
-
-
-
-<div class="footer">
-سوییچ به سوییچ | سرعت • امنیت • شفافیت
-</div>
-
-
-</main>
-
-</div>
-
 
 
 <script>
 
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL = "https://tgdbrchbbuakmymogyuh.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_Y2aWeXKDVMp5tS-RF4emSw_Jt0OExjH";
+
+
+/* =========================
+   VARIABLES
+========================= */
 
 let requestType = "";
-
 let selectedTime = "";
-
 let selectedDate = "";
 
 let calendarYear = 1405;
-
 let calendarMonth = 6;
 
 
-
-const monthNames = [
-
-"فروردین",
-"اردیبهشت",
-"خرداد",
-"تیر",
-"مرداد",
-"شهریور",
-"مهر",
-"آبان",
-"آذر",
-"دی",
-"بهمن",
-"اسفند"
-
-];
-
-
-const weekNames = [
-
-"شنبه",
-"یکشنبه",
-"دوشنبه",
-"سه‌شنبه",
-"چهارشنبه",
-"پنجشنبه",
-"جمعه"
-
-];
-
-
+/* =========================
+   MODELS
+========================= */
 
 const models = {
 
-"ایران خودرو":[
-"پژو ۲۰۶",
-"پژو ۲۰۷",
-"پژو پارس",
-"دنا",
-"دنا پلاس",
-"تارا",
-"رانا",
-"سمند",
-"سورن",
-"هایما",
-"ری‌را"
-],
+  "ایران خودرو": [
+    "پژو 206",
+    "پژو 207",
+    "پژو پارس",
+    "دنا",
+    "دنا پلاس",
+    "سمند",
+    "تارا",
+    "رانا",
+    "سورن"
+  ],
 
-"سایپا":[
-"پراید",
-"تیبا",
-"تیبا ۲",
-"ساینا",
-"کوییک",
-"شاهین",
-"اطلس"
-],
+  "سایپا": [
+    "پراید",
+    "تیبا",
+    "ساینا",
+    "کوییک",
+    "شاهین",
+    "اطلس"
+  ],
 
-"مدیران خودرو":[
-"MVM X22",
-"MVM X33",
-"MVM X55",
-"فونیکس FX",
-"تیگو ۷",
-"تیگو ۸"
-],
+  "مدیران خودرو": [
+    "X22",
+    "X33",
+    "X55",
+    "Arrizo 5",
+    "Arrizo 6"
+  ],
 
-"کرمان موتور":[
-"جک J4",
-"جک S3",
-"جک S5",
-"KMC J7",
-"KMC T8",
-"KMC X5"
-],
+  "کرمان موتور": [
+    "J4",
+    "J7",
+    "S3",
+    "S5",
+    "KMC K7"
+  ],
 
-"بهمن موتور":[
-"فیدلیتی",
-"دیگنیتی",
-"رسپکت",
-"مزدا ۳",
-"کاپرا"
-],
+  "بهمن موتور": [
+    "فیدلیتی",
+    "دیگنیتی",
+    "رسپکت",
+    "مزدا 3"
+  ],
 
-"کیا":[
-"سراتو",
-"اپتیما",
-"اسپورتیج",
-"سورنتو",
-"موهاوی"
-],
+  "فونیکس": [
+    "FX",
+    "Tiggo 7",
+    "Tiggo 8"
+  ],
 
-"هیوندای":[
-"اکسنت",
-"النترا",
-"سوناتا",
-"توسان",
-"سانتافه",
-"آزرا"
-],
+  "چری": [
+    "Arrizo 5",
+    "Arrizo 6",
+    "Tiggo 7",
+    "Tiggo 8"
+  ],
 
-"تویوتا":[
-"کرولا",
-"کمری",
-"راوفور",
-"پرادو",
-"هایلوکس",
-"یاریس"
-],
+  "ام وی ام": [
+    "X22",
+    "X33",
+    "X55",
+    "315"
+  ],
 
-"نیسان":[
-"ماکسیما",
-"مورانو",
-"قشقایی",
-"جوک",
-"پاترول"
-],
+  "جک": [
+    "J4",
+    "S3",
+    "S5",
+    "J7"
+  ],
 
-"مزدا":[
-"مزدا ۳",
-"مزدا ۲",
-"CX-5"
-],
+  "هیوندای": [
+    "Accent",
+    "Elantra",
+    "Sonata",
+    "Tucson",
+    "Santa Fe"
+  ],
 
-"رنو":[
-"ساندرو",
-"استپ‌وی",
-"تندر ۹۰",
-"مگان",
-"داستر",
-"کپچر"
-],
+  "کیا": [
+    "Cerato",
+    "Optima",
+    "Sportage",
+    "Sorento",
+    "Rio"
+  ],
 
-"پژو":[
-"۲۰۶",
-"۲۰۷",
-"۴۰۵",
-"پارس",
-"۵۰۸"
-],
+  "تویوتا": [
+    "Corolla",
+    "Camry",
+    "Yaris",
+    "RAV4",
+    "Land Cruiser"
+  ],
 
-"ام وی ام":[
-"X22",
-"X33",
-"X55",
-"315"
-],
+  "نیسان": [
+    "Maxima",
+    "X-Trail",
+    "Juke",
+    "Teana"
+  ],
 
-"جک":[
-"J4",
-"S3",
-"S5"
-],
+  "بنز": [
+    "C-Class",
+    "E-Class",
+    "S-Class",
+    "GLC"
+  ],
 
-"فونیکس":[
-"FX",
-"تیگو ۷",
-"تیگو ۸"
-],
+  "بی ام و": [
+    "320",
+    "520",
+    "X3",
+    "X5"
+  ],
 
-"چری":[
-"آریزو ۵",
-"آریزو ۶",
-"تیگو ۷"
-]
+  "آئودی": [
+    "A3",
+    "A4",
+    "Q3",
+    "Q5"
+  ],
+
+  "رنو": [
+    "ساندرو",
+    "تندر 90",
+    "داستر",
+    "کپچر"
+  ],
+
+  "پژو": [
+    "206",
+    "207",
+    "پارس",
+    "405"
+  ],
+
+  "سایر": [
+    "سایر"
+  ]
 
 };
 
 
+/* =========================
+   YEARS
+========================= */
 
-function chooseType(type){
+const yearSelect = document.getElementById("year");
 
-requestType = type;
-
-document
-.getElementById("selectedType")
-.classList.remove("hidden");
-
-document
-.getElementById("selectedType")
-.innerText =
-"نوع درخواست انتخاب‌شده: " + type;
-
-document
-.getElementById("form")
-.classList.remove("hidden");
-
-if(type === "فروش خودرو"){
-
-document
-.getElementById("exchangeBox")
-.style.display = "none";
-
-}else{
-
-document
-.getElementById("exchangeBox")
-.style.display = "block";
-
-}
-
-document
-.getElementById("form")
-.scrollIntoView({
-behavior:"smooth"
-});
-
+for(let y = 1405; y >= 1380; y--) {
+  const option = document.createElement("option");
+  option.value = y;
+  option.textContent = y;
+  yearSelect.appendChild(option);
 }
 
 
+/* =========================
+   CHOOSE TYPE
+========================= */
 
-function loadModels(){
+function chooseType(type) {
 
-const brand =
-document.getElementById("brand").value;
+  requestType = type;
 
-const model =
-document.getElementById("model");
+  document.getElementById("selectedType").style.display = "block";
+  document.getElementById("selectedType").textContent =
+    "نوع درخواست انتخاب شده: " + type;
 
-model.innerHTML =
-'<option value="">انتخاب مدل</option>';
+  document.getElementById("form").style.display = "block";
 
-if(models[brand]){
+  if(type === "معاوضه خودرو") {
+    document.getElementById("exchangeBox").style.display = "block";
+  } else {
+    document.getElementById("exchangeBox").style.display = "none";
+  }
 
-models[brand].forEach(function(name){
-
-const option =
-document.createElement("option");
-
-option.value = name;
-
-option.textContent = name;
-
-model.appendChild(option);
-
-});
-
-}
-
+  document.getElementById("form").scrollIntoView({
+    behavior: "smooth"
+  });
 }
 
 
+/* =========================
+   LOAD MODELS
+========================= */
 
-function formatKm(input){
+function loadModels() {
 
-let value =
-input.value.replace(/\D/g,"");
+  const brand = document.getElementById("brand").value;
+  const modelSelect = document.getElementById("model");
 
-if(value){
+  modelSelect.innerHTML =
+    '<option value="">انتخاب مدل</option>';
 
-input.value =
-Number(value).toLocaleString("en-US");
+  if(models[brand]) {
 
-}else{
+    models[brand].forEach(function(model) {
 
-input.value = "";
+      const option = document.createElement("option");
 
-}
+      option.value = model;
+      option.textContent = model;
 
-}
+      modelSelect.appendChild(option);
 
+    });
 
-
-function goBooking(){
-
-const name =
-document.getElementById("name").value.trim();
-
-const phone =
-document.getElementById("phone").value.trim();
-
-const brand =
-document.getElementById("brand").value;
-
-const model =
-document.getElementById("model").value;
-
-const year =
-document.getElementById("year").value;
-
-
-if(
-!name ||
-!phone ||
-!brand ||
-!model ||
-!year
-){
-
-alert(
-"لطفاً نام، شماره موبایل، برند، مدل و سال ساخت را کامل انتخاب کنید."
-);
-
-return;
-
+  }
 }
 
 
-document
-.getElementById("form")
-.classList.add("hidden");
+/* =========================
+   KM FORMAT
+========================= */
 
-document
-.getElementById("booking")
-.classList.remove("hidden");
+function formatKm(input) {
+
+  let value = input.value.replace(/\D/g,"");
+
+  if(value) {
+    input.value = Number(value).toLocaleString("en-US");
+  }
+}
+
+
+/* =========================
+   GO BOOKING
+========================= */
+
+function goBooking() {
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const brand = document.getElementById("brand").value;
+  const model = document.getElementById("model").value;
+  const year = document.getElementById("year").value;
+
+  if(!name || !phone || !brand || !model || !year) {
+
+    alert("لطفاً اطلاعات نام، شماره تماس، برند، مدل و سال خودرو را کامل کنید.");
+
+    return;
+  }
+
+  document.getElementById("form").style.display = "none";
+  document.getElementById("booking").style.display = "block";
+
+  renderCalendar();
+
+  document.getElementById("booking").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+const monthNames = [
+  "فروردین",
+  "اردیبهشت",
+  "خرداد",
+  "تیر",
+  "مرداد",
+  "شهریور",
+  "مهر",
+  "آبان",
+  "آذر",
+  "دی",
+  "بهمن",
+  "اسفند"
+];
+
+
+function renderCalendar() {
+
+  const calendar = document.getElementById("calendar");
+
+  calendar.innerHTML = "";
+
+  document.getElementById("calendarTitle").textContent =
+    monthNames[calendarMonth - 1] + " " + calendarYear;
+
+  for(let i = 0; i < 35; i++) {
+
+    const day = i + 1;
+
+    if(day > 31) {
+
+      const empty = document.createElement("div");
+
+      empty.className = "day empty";
+
+      calendar.appendChild(empty);
+
+      continue;
+    }
+
+    const button = document.createElement("button");
+
+    button.className = "day";
+    button.textContent = day;
+
+    if(
+      selectedDate ===
+      calendarYear + "/" +
+      String(calendarMonth).padStart(2,"0") + "/" +
+      String(day).padStart(2,"0")
+    ) {
+      button.classList.add("selected");
+    }
+
+    button.onclick = function() {
+      chooseDate(calendarYear, calendarMonth, day);
+    };
+
+    calendar.appendChild(button);
+
+  }
+}
+
+
+function changeMonth(direction) {
+
+  calendarMonth += direction;
+
+  if(calendarMonth > 12) {
+    calendarMonth = 1;
+    calendarYear++;
+  }
+
+  if(calendarMonth < 1) {
+    calendarMonth = 12;
+    calendarYear--;
+  }
+
+  renderCalendar();
+}
+
+
+function chooseDate(year, month, day) {
+
+  selectedDate =
+    year + "/" +
+    String(month).padStart(2,"0") + "/" +
+    String(day).padStart(2,"0");
+
+  document.getElementById("selectedDate").style.display = "block";
+
+  document.getElementById("selectedDate").textContent =
+    "تاریخ انتخاب شده: " + selectedDate;
+
+  renderCalendar();
+}
+
+
+/* =========================
+   SELECT TIME
+========================= */
+
+function selectTime(button, time) {
+
+  document.querySelectorAll(".time").forEach(function(btn) {
+    btn.classList.remove("selected");
+  });
+
+  button.classList.add("selected");
+
+  selectedTime = time;
+}
+
+
+/* =========================
+   SUBMIT REQUEST
+========================= */
+
+async function submitRequest() {
+
+  const errorBox = document.getElementById("errorBox");
+  const submitButton = document.getElementById("submitButton");
+
+  errorBox.style.display = "none";
+
+  if(!selectedDate) {
+
+    showError("لطفاً ابتدا تاریخ کارشناسی را انتخاب کنید.");
+
+    return;
+  }
+
+  if(!selectedTime) {
+
+    showError("لطفاً ساعت کارشناسی را انتخاب کنید.");
+
+    return;
+  }
+
+
+  const kmInput = document.getElementById("km").value;
+
+  const trackingCode =
+    "STW-" +
+    Math.floor(10000 + Math.random() * 90000);
+
+
+  const data = {
+
+    tracking_code: trackingCode,
+
+    request_type: requestType,
+
+    name: document.getElementById("name").value.trim(),
+
+    phone: document.getElementById("phone").value.trim(),
+
+    brand: document.getElementById("brand").value,
+
+    model: document.getElementById("model").value,
+
+    year: document.getElementById("year").value,
+
+    trim: document.getElementById("trim").value.trim(),
+
+    km: kmInput,
+
+    color: document.getElementById("color").value,
+
+    condition: document.getElementById("condition").value.trim(),
+
+    wanted_brand:
+      document.getElementById("wantedBrand").value.trim(),
+
+    wanted_car:
+      document.getElementById("wantedCar").value.trim(),
+
+    budget:
+      document.getElementById("budget").value.trim(),
+
+    appointment_date: selectedDate,
+
+    appointment_time: selectedTime,
+
+    status: "در انتظار بررسی"
+
+  };
+
+
+  submitButton.textContent = "در حال ثبت درخواست...";
+  submitButton.classList.add("loading");
+
+
+  try {
+
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/requests",
+      {
+        method: "POST",
+
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY,
+          "Content-Type": "application/json",
+          "Prefer": "return=minimal"
+        },
+
+        body: JSON.stringify(data)
+      }
+    );
+
+
+    if(!response.ok) {
+
+      const errorText = await response.text();
+
+      throw new Error(errorText);
+
+    }
+
+
+    document.getElementById("tracking").textContent =
+      trackingCode;
+
+    document.getElementById("doneType").textContent =
+      requestType;
+
+    document.getElementById("doneDate").textContent =
+      selectedDate;
+
+    document.getElementById("doneTime").textContent =
+      selectedTime;
+
+
+    document.getElementById("booking").style.display = "none";
+
+    document.getElementById("done").style.display = "block";
+
+    document.getElementById("done").scrollIntoView({
+      behavior:"smooth"
+    });
+
+
+  } catch(error) {
+
+    console.error(error);
+
+    showError(
+      "ثبت درخواست انجام نشد. لطفاً دوباره تلاش کنید."
+    );
+
+  } finally {
+
+    submitButton.textContent = "ثبت نهایی درخواست";
+
+    submitButton.classList.remove("loading");
+
+  }
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+function showError(message) {
+
+  const errorBox = document.getElementById("errorBox");
+
+  errorBox.textContent = message;
+
+  errorBox.style.display = "block";
+
+  errorBox.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+function backForm() {
+
+  document.getElementById("booking").style.display = "none";
+
+  document.getElementById("form").style.display = "block";
+
+  document.getElementById("form").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+/* =========================
+   INITIAL CALENDAR
+========================= */
 
 renderCalendar();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-
-function selectTime(button){
-
-document
-.querySelectorAll(".slot")
-.forEach(function(item){
-
-item.classList.remove("selected");
-
-});
-
-button.classList.add("selected");
-
-selectedTime =
-button.innerText;
-
-}
-
-
-
-function renderCalendar(){
-
-const calendar =
-document.getElementById("calendar");
-
-let html = "";
-
-
-html += '<div class="calendar-top">';
-
-html +=
-'<button type="button" onclick="changeMonth(-1)">‹</button>';
-
-html +=
-'<div class="calendar-title">' +
-monthNames[calendarMonth - 1] +
-" " +
-calendarYear +
-"</div>";
-
-html +=
-'<button type="button" onclick="changeMonth(1)">›</button>';
-
-html += "</div>";
-
-
-html += '<div class="weekdays">';
-
-weekNames.forEach(function(day){
-
-html +=
-"<div>" +
-day.substring(0,2) +
-"</div>";
-
-});
-
-html += "</div>";
-
-
-html += '<div class="days">';
-
-
-let startDay = 0;
-
-let totalDays = 31;
-
-
-if(calendarMonth >= 7){
-
-totalDays = 30;
-
-}
-
-
-if(calendarMonth === 12){
-
-totalDays = 29;
-
-}
-
-
-/*
-تقویم ساده و ثابت
-*/
-
-for(let i=0;i<startDay;i++){
-
-html += "<div></div>";
-
-}
-
-
-for(
-let day=1;
-day<=totalDays;
-day++
-){
-
-let key =
-calendarYear +
-"/" +
-calendarMonth +
-"/" +
-day;
-
-let cls = "day";
-
-if(key === selectedDate){
-
-cls += " selected";
-
-}
-
-html +=
-
-'<button type="button" class="' +
-cls +
-'" onclick="chooseDate(' +
-calendarYear +
-',' +
-calendarMonth +
-',' +
-day +
-')">' +
-
-day +
-
-"</button>";
-
-}
-
-
-html += "</div>";
-
-calendar.innerHTML = html;
-
-}
-
-
-
-function changeMonth(direction){
-
-calendarMonth += direction;
-
-
-if(calendarMonth > 12){
-
-calendarMonth = 1;
-
-calendarYear++;
-
-}
-
-
-if(calendarMonth < 1){
-
-calendarMonth = 12;
-
-calendarYear--;
-
-}
-
-
-renderCalendar();
-
-}
-
-
-
-function chooseDate(year,month,day){
-
-selectedDate =
-year +
-"/" +
-month +
-"/" +
-day;
-
-
-document
-.getElementById("selectedDate")
-.innerText =
-"تاریخ انتخاب‌شده: " +
-weekNames[(day - 1) % 7] +
-" " +
-day +
-" " +
-monthNames[month - 1] +
-" " +
-year;
-
-
-renderCalendar();
-
-}
-
-
-
-function submitRequest(){
-
-if(!selectedDate){
-
-alert(
-"لطفاً تاریخ کارشناسی را انتخاب کنید."
-);
-
-return;
-
-}
-
-
-if(!selectedTime){
-
-alert(
-"لطفاً ساعت کارشناسی را انتخاب کنید."
-);
-
-return;
-
-}
-
-
-document
-.getElementById("doneType")
-.innerText =
-requestType;
-
-document
-.getElementById("doneDate")
-.innerText =
-document
-.getElementById("selectedDate")
-.innerText
-.replace("تاریخ انتخاب‌شده: ","");
-
-document
-.getElementById("doneTime")
-.innerText =
-selectedTime;
-
-
-const code =
-"STW-" +
-Math.floor(
-10000 +
-Math.random() * 90000
-);
-
-
-document
-.getElementById("tracking")
-.innerText =
-code;
-
-
-document
-.getElementById("booking")
-.classList.add("hidden");
-
-document
-.getElementById("done")
-.classList.remove("hidden");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-
-function backForm(){
-
-document
-.getElementById("booking")
-.classList.add("hidden");
-
-document
-.getElementById("form")
-.classList.remove("hidden");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
 
 </script>
 
-
 </body>
-
 </html>
