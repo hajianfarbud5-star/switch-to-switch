@@ -1,13 +1,16 @@
-
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>سوییچ به سوییچ | معاوضه آسان و سریع خودرو</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
@@ -118,7 +121,9 @@ color:#607486;
 margin-top:14px;
 }
 
-input,select,textarea{
+input,
+select,
+textarea{
 width:100%;
 padding:13px;
 margin-top:7px;
@@ -131,7 +136,9 @@ font-size:13px;
 outline:none;
 }
 
-input:focus,select:focus,textarea:focus{
+input:focus,
+select:focus,
+textarea:focus{
 border-color:#1898df;
 background:#fff;
 }
@@ -277,319 +284,1169 @@ font-size:11px;
 color:#91a0ab;
 padding:20px 0;
 }
-</style>
-  .jalali-calendar
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:9px;{
-margin-top:10px;
+
+
+/* =========================
+   تقویم شمسی
+========================= */
+
+.jalali-calendar{
+margin-top:8px;
+border:1px solid #d8e4ec;
+border-radius:15px;
+overflow:hidden;
+background:#fff;
 }
 
-.jalali-day{
-border:1px solid #d4e2eb;
-background:#f8fbfd;
-border-radius:12px;
-padding:12px 6px;
-font-family:inherit;
-color:#31566e;
+.calendar-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:13px;
+background:linear-gradient(135deg,#0b3d66,#168bd1);
+color:#fff;
+}
+
+.calendar-header button{
+width:36px;
+height:36px;
+border:0;
+border-radius:9px;
+background:rgba(255,255,255,.15);
+color:#fff;
+font-size:20px;
 cursor:pointer;
 }
 
-.jalali-day span{
-display:block;
-font-size:11px;
-color:#718596;
-margin-bottom:5px;
+.calendar-title{
+font-weight:900;
+font-size:14px;
 }
 
-.jalali-day b{
-display:block;
-font-size:20px;
-color:#0c6f9f;
+.calendar-weekdays{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+background:#f4f8fb;
+border-bottom:1px solid #e2eaf0;
 }
 
-.jalali-day small{
-display:block;
+.calendar-weekdays div{
+text-align:center;
+padding:9px 2px;
 font-size:10px;
-margin-top:4px;
+font-weight:bold;
+color:#718394;
+}
+
+.calendar-days{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+padding:8px;
+gap:4px;
+}
+
+.jalali-day{
+min-height:38px;
+border:0;
+border-radius:9px;
+background:#f7fafc;
+color:#24465d;
+font-family:inherit;
+cursor:pointer;
+font-size:12px;
+}
+
+.jalali-day:hover{
+background:#dff3ff;
+}
+
+.jalali-day.today{
+border:1px solid #159be7;
 }
 
 .jalali-day.selected{
-background:#dff3ff;
-border-color:#159be7;
-box-shadow:0 0 0 2px rgba(21,155,231,.12);
+background:#168fd4;
+color:white;
+font-weight:bold;
+}
+
+.jalali-day.disabled{
+opacity:.25;
+cursor:not-allowed;
 }
 
 .selected-date-text{
-margin-top:10px;
+margin-top:9px;
 padding:11px;
 background:#edf8ff;
 border:1px solid #c9e9fb;
 border-radius:10px;
 font-size:12px;
-color:#17628b;
 font-weight:bold;
+color:#17628b;
+text-align:center;
 }
+
+</style>
 </head>
+
 
 <body>
 
 <div class="app">
 
 <header>
-<div class="logo">سوییچ <span>به</span> سوییچ</div>
-<div class="sub">معاوضه آسان و سریع خودرو با امنیت و شفافیت</div>
+
+<div class="logo">
+سوییچ <span>به</span> سوییچ
+</div>
+
+<div class="sub">
+معاوضه آسان و سریع خودرو با امنیت و شفافیت
+</div>
+
 </header>
 
+
 <main>
+
+
+<!-- شروع -->
 
 <section id="start">
 
 <div class="card hero">
-<h1>خودروت رو بفروش یا معاوضه کن</h1>
+
+<h1>
+خودروت رو بفروش یا معاوضه کن
+</h1>
+
 <div class="muted">
 مشخصات خودروت رو ثبت کن؛ تیم سوییچ به سوییچ ادامه مسیر رو با امنیت، شفافیت و سرعت پیگیری می‌کنه.
 </div>
+
 </div>
 
-<div class="title">چه خدمتی می‌خواهی؟</div>
+
+<div class="title">
+چه خدمتی می‌خواهی؟
+</div>
+
 
 <div class="grid">
 
 <div class="card choice" onclick="typeSelect('فروش خودرو')">
+
 <span class="icon">🚗</span>
-<b>فروش خودرو</b>
-<div class="muted">برای فروش سریع و شفاف</div>
+
+<b>
+فروش خودرو
+</b>
+
+<div class="muted">
+برای فروش سریع و شفاف
 </div>
+
+</div>
+
 
 <div class="card choice" onclick="typeSelect('معاوضه خودرو')">
+
 <span class="icon">🔄</span>
-<b>معاوضه خودرو</b>
-<div class="muted">خودروی فعلی در برابر خودروی موردنظر</div>
+
+<b>
+معاوضه خودرو
+</b>
+
+<div class="muted">
+خودروی فعلی در برابر خودروی موردنظر
 </div>
 
 </div>
+
+</div>
+
 
 <div id="selected" class="notice hidden"></div>
 
 </section>
 
 
+
+<!-- فرم خودرو -->
+
 <section id="form" class="hidden">
 
-<div class="title">۱. اطلاعات شما و خودرو</div>
+<div class="title">
+۱. اطلاعات شما و خودرو
+</div>
+
 
 <div class="card">
 
+
 <label>
+
 نام و نام خانوادگی
-<input id="name" placeholder="مثلاً علی رضایی">
+
+<input
+id="name"
+placeholder="مثلاً علی رضایی"
+>
+
 </label>
 
+
+
 <label>
+
 شماره موبایل
-<input id="phone" type="tel" placeholder="09xxxxxxxxx">
+
+<input
+id="phone"
+type="tel"
+inputmode="numeric"
+placeholder="09xxxxxxxxx"
+>
+
 </label>
 
+
+
 <label>
+
 برند خودرو
-<input id="brand" placeholder="مثلاً ام‌وی‌ام">
+
+<select id="brand" onchange="updateModels()">
+
+<option value="">
+انتخاب برند
+</option>
+
+<option>ایران خودرو</option>
+<option>سایپا</option>
+<option>مدیران خودرو</option>
+<option>کرمان موتور</option>
+<option>بهمن موتور</option>
+<option>فونیکس</option>
+<option>چری</option>
+<option>ام وی ام</option>
+<option>جک</option>
+<option>کیا</option>
+<option>هیوندای</option>
+<option>تویوتا</option>
+<option>نیسان</option>
+<option>مزدا</option>
+<option>بنز</option>
+<option>بی ام و</option>
+<option>آئودی</option>
+<option>فولکس واگن</option>
+<option>رنو</option>
+<option>پژو</option>
+<option>سیتروئن</option>
+<option>سوزوکی</option>
+<option>لیفان</option>
+<option>هایما</option>
+<option>دیگنیتی</option>
+<option>فیدلیتی</option>
+<option>لاماری</option>
+<option>رسپکت</option>
+<option>کوییک</option>
+<option>شاهین</option>
+<option>دنا</option>
+<option>سمند</option>
+<option>پراید</option>
+<option>تیبا</option>
+<option>سایر</option>
+
+</select>
+
 </label>
 
+
+
 <label>
+
 مدل خودرو
-<input id="model" placeholder="مثلاً X22">
+
+<select id="model">
+
+<option value="">
+ابتدا برند را انتخاب کنید
+</option>
+
+</select>
+
 </label>
 
-<label>
-تیپ خودرو
-<input id="trim" placeholder="مثلاً Sport Luxury">
-</label>
+
 
 <label>
+
 سال ساخت
-<input id="year" placeholder="مثلاً ۱۴۰۲">
+
+<select id="year">
+
+<option value="">
+انتخاب سال ساخت
+</option>
+
+<option>۱۴۰۵</option>
+<option>۱۴۰۴</option>
+<option>۱۴۰۳</option>
+<option>۱۴۰۲</option>
+<option>۱۴۰۱</option>
+<option>۱۴۰۰</option>
+<option>۱۳۹۹</option>
+<option>۱۳۹۸</option>
+<option>۱۳۹۷</option>
+<option>۱۳۹۶</option>
+<option>۱۳۹۵</option>
+<option>۱۳۹۴</option>
+<option>۱۳۹۳</option>
+<option>۱۳۹۲</option>
+<option>۱۳۹۱</option>
+<option>۱۳۹۰</option>
+<option>۱۳۸۹</option>
+<option>۱۳۸۸</option>
+<option>۱۳۸۷</option>
+<option>۱۳۸۶</option>
+<option>۱۳۸۵</option>
+<option>۱۳۸۴</option>
+<option>۱۳۸۳</option>
+<option>۱۳۸۲</option>
+<option>۱۳۸۱</option>
+<option>۱۳۸۰</option>
+<option>سایر</option>
+
+</select>
+
 </label>
 
-<label>
-کارکرد
-<input id="km" placeholder="مثلاً ۱۴۰۰۰۰ کیلومتر">
-</label>
+
 
 <label>
+
+تیپ خودرو
+
+<select id="trim">
+
+<option value="">
+انتخاب تیپ
+</option>
+
+<option>دنده‌ای</option>
+<option>اتوماتیک</option>
+<option>توربو</option>
+<option>اتوماتیک توربو</option>
+<option>فول</option>
+<option>نیمه فول</option>
+<option>ساده</option>
+<option>سایر</option>
+
+</select>
+
+</label>
+
+
+
+<label>
+
+کارکرد خودرو
+
+<input
+id="km"
+inputmode="numeric"
+placeholder="مثلاً 125,000"
+oninput="formatKilometer(this)"
+>
+
+</label>
+
+
+
+<label>
+
 رنگ خودرو
-<input id="color" placeholder="مثلاً سفید">
+
+<select id="color">
+
+<option value="">
+انتخاب رنگ
+</option>
+
+<option>سفید</option>
+<option>مشکی</option>
+<option>خاکستری</option>
+<option>نقره‌ای</option>
+<option>آبی</option>
+<option>قرمز</option>
+<option>سرمه‌ای</option>
+<option>قهوه‌ای</option>
+<option>طلایی</option>
+<option>سبز</option>
+<option>زرد</option>
+<option>سایر</option>
+
+</select>
+
 </label>
 
+
+
 <label>
+
 وضعیت خودرو
-<textarea id="condition" rows="3" placeholder="توضیحات مهم درباره خودرو، تصادف، رنگ، وضعیت فنی و..."></textarea>
+
+<textarea
+id="condition"
+rows="3"
+placeholder="توضیحات مهم درباره خودرو، تصادف، رنگ، وضعیت فنی و..."
+></textarea>
+
 </label>
+
+
 
 <div id="exchangeExtra">
 
-<div class="title">خودروی موردنظر برای معاوضه</div>
+
+<div class="title">
+خودروی موردنظر برای معاوضه
+</div>
+
+
 
 <label>
-نوع یا مدل خودروی موردنظر
-<input id="wantedCar" placeholder="مثلاً SUV اتوماتیک">
+
+برند خودروی موردنظر
+
+<select id="wantedBrand">
+
+<option value="">
+انتخاب برند
+</option>
+
+<option>ایران خودرو</option>
+<option>سایپا</option>
+<option>مدیران خودرو</option>
+<option>کرمان موتور</option>
+<option>بهمن موتور</option>
+<option>فونیکس</option>
+<option>چری</option>
+<option>ام وی ام</option>
+<option>جک</option>
+<option>کیا</option>
+<option>هیوندای</option>
+<option>تویوتا</option>
+<option>نیسان</option>
+<option>مزدا</option>
+<option>رنو</option>
+<option>پژو</option>
+<option>سایر</option>
+
+</select>
+
 </label>
 
+
+
 <label>
+
+مدل خودروی موردنظر
+
+<input
+id="wantedCar"
+placeholder="مثلاً تویوتا کرولا"
+/>
+
+</label>
+
+
+
+<label>
+
 بودجه یا مبلغ تکمیلی
-<input id="budget" placeholder="مثلاً ۳۰۰ میلیون تومان">
+
+<input
+id="budget"
+inputmode="numeric"
+placeholder="مثلاً ۳۰۰ میلیون تومان"
+/>
+
 </label>
+
 
 </div>
 
-<button class="btn primary" onclick="goBooking()">
+
+
+<button
+class="btn primary"
+onclick="goBooking()"
+>
+
 ادامه و انتخاب زمان کارشناسی
+
 </button>
+
 
 </div>
 
 </section>
 
+
+
+<!-- زمان کارشناسی -->
 
 <section id="booking" class="hidden">
 
-<div class="title">۲. زمان کارشناسی</div>
+<div class="title">
+۲. زمان کارشناسی
+</div>
+
 
 <div class="card">
 
+
 <div class="notice">
+
 کارشناس سوییچ به سوییچ برای بررسی حضوری خودرو هماهنگ می‌شود. پس از ثبت درخواست، همکاران ما برای هماهنگی آدرس با شما تماس می‌گیرند.
+
 </div>
 
+
+
 <label>
+
 تاریخ موردنظر
-<div id="jalaliCalendar" class="jalali-calendar"></div>
-<input type="hidden" id="date">
-<div id="selectedDateText" class="selected-date-text"></div>
+
+<div
+id="jalaliCalendar"
+class="jalali-calendar"
+></div>
+
+<input
+type="hidden"
+id="date"
+>
+
+<div
+id="selectedDateText"
+class="selected-date-text"
+>
+لطفاً تاریخ کارشناسی را انتخاب کنید.
+</div>
+
 </label>
 
-<div class="title">ساعت موردنظر</div>
+
+
+<div class="title">
+ساعت موردنظر
+</div>
+
+
 
 <div class="slots">
 
-<button class="slot" onclick="pick(this)">۰۹:۰۰</button>
-<button class="slot" onclick="pick(this)">۱۰:۰۰</button>
-<button class="slot" onclick="pick(this)">۱۱:۰۰</button>
 
-<button class="slot" onclick="pick(this)">۱۲:۰۰</button>
-<button class="slot" onclick="pick(this)">۱۳:۰۰</button>
-<button class="slot busy">۱۴:۰۰</button>
+<button
+class="slot"
+onclick="pick(this)"
+>
+۰۹:۰۰
+</button>
 
-<button class="slot" onclick="pick(this)">۱۵:۰۰</button>
-<button class="slot" onclick="pick(this)">۱۶:۰۰</button>
-<button class="slot" onclick="pick(this)">۱۷:۰۰</button>
+
+<button
+class="slot"
+onclick="pick(this)"
+>
+۱۰:۰۰
+</button>
+
+
+<button
+class="slot"
+onclick="pick(this)"
+>
+۱۱:۰۰
+</button>
+
+
+<button
+class="slot"
+onclick="pick(this)"
+>
+۱۲:۰۰
+</button>
+
+
+<button
+class="slot"
+onclick="pick(this)"
+>
+۱۳:۰۰
+</button>
+
+
+<button
+class="slot busy"
+disabled
+>
+۱۴:۰۰
+</button>
+
+
+<button
+class="slot"
+onclick="pick(this)"
+>
+۱۵:۰۰
+</button>
+
+
+<button
+class="slot"
+onclick="pick(this)"
+>
+۱۶:۰۰
+</button>
+
+
+<button
+class="slot"
+onclick="pick(this)"
+>
+۱۷:۰۰
+</button>
+
 
 </div>
 
-<button class="btn primary" onclick="submitRequest()">
+
+
+<button
+class="btn primary"
+onclick="submitRequest()"
+>
 ثبت درخواست
 </button>
 
-<button class="btn secondary" onclick="backToForm()">
+
+<button
+class="btn secondary"
+onclick="backToForm()"
+>
 بازگشت
 </button>
 
+
 </div>
 
 </section>
 
+
+
+<!-- ثبت نهایی -->
 
 <section id="done" class="hidden">
 
+
 <div class="card success">
 
-<div class="success-icon">✅</div>
+<div class="success-icon">
+✅
+</div>
 
-<h1>درخواست شما ثبت شد</h1>
+
+<h1>
+درخواست شما ثبت شد
+</h1>
+
 
 <div class="muted">
+
 درخواست شما با موفقیت ثبت شد و همکاران سوییچ به سوییچ برای هماهنگی با شما تماس می‌گیرند.
+
 </div>
 
 </div>
+
+
 
 <div class="card">
 
-<div class="row">
-<span>کد پیگیری</span>
-<b id="tracking">STW-00126</b>
-</div>
 
 <div class="row">
-<span>نوع درخواست</span>
-<b id="doneType">فروش خودرو</b>
+
+<span>
+کد پیگیری
+</span>
+
+<b id="tracking">
+STW-00126
+</b>
+
 </div>
+
+
 
 <div class="row">
-<span>وضعیت</span>
-<span class="badge">منتظر هماهنگی</span>
-</div>
+
+<span>
+نوع درخواست
+</span>
+
+<b id="doneType">
+فروش خودرو
+</b>
 
 </div>
+
+
+
+<div class="row">
+
+<span>
+تاریخ کارشناسی
+</span>
+
+<b id="doneDate">
+-
+</b>
+
+</div>
+
+
+
+<div class="row">
+
+<span>
+ساعت کارشناسی
+</span>
+
+<b id="doneTime">
+-
+</b>
+
+</div>
+
+
+
+<div class="row">
+
+<span>
+وضعیت
+</span>
+
+<span class="badge">
+منتظر هماهنگی
+</span>
+
+</div>
+
+
+</div>
+
+
 
 <div class="card">
 
-<div class="title">مراحل بعدی</div>
+
+<div class="title">
+مراحل بعدی
+</div>
+
 
 <div class="steps">
 
-<div class="step">
-<span class="stepnum">۱</span>
-<div>
-<b>هماهنگی با شما</b>
-<div class="muted">برای دریافت آدرس و هماهنگی کارشناسی با شما تماس می‌گیریم.</div>
-</div>
-</div>
 
 <div class="step">
-<span class="stepnum">۲</span>
+
+<span class="stepnum">
+۱
+</span>
+
 <div>
-<b>کارشناسی خودرو</b>
-<div class="muted">خودرو از نظر بدنه و وضعیت فنی بررسی می‌شود.</div>
+
+<b>
+هماهنگی با شما
+</b>
+
+<div class="muted">
+برای دریافت آدرس و هماهنگی کارشناسی با شما تماس می‌گیریم.
 </div>
+
 </div>
+
+</div>
+
+
 
 <div class="step">
-<span class="stepnum">۳</span>
+
+<span class="stepnum">
+۲
+</span>
+
 <div>
-<b>ارزیابی و پیشنهاد</b>
-<div class="muted">ارزش خودرو و شرایط معامله بررسی می‌شود.</div>
+
+<b>
+کارشناسی خودرو
+</b>
+
+<div class="muted">
+خودرو از نظر بدنه و وضعیت فنی بررسی می‌شود.
 </div>
+
 </div>
+
+</div>
+
+
 
 <div class="step">
-<span class="stepnum">۴</span>
+
+<span class="stepnum">
+۳
+</span>
+
 <div>
-<b>ادامه معامله</b>
-<div class="muted">در صورت تأیید شما، مراحل معامله و معاوضه ادامه پیدا می‌کند.</div>
-</div>
+
+<b>
+ارزیابی و پیشنهاد
+</b>
+
+<div class="muted">
+ارزش خودرو و شرایط معامله بررسی می‌شود.
 </div>
 
 </div>
 
 </div>
 
-<button class="btn secondary" onclick="location.reload()">
+
+
+<div class="step">
+
+<span class="stepnum">
+۴
+</span>
+
+<div>
+
+<b>
+ادامه معامله
+</b>
+
+<div class="muted">
+در صورت تأیید شما، مراحل معامله و معاوضه ادامه پیدا می‌کند.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<button
+class="btn secondary"
+onclick="location.reload()"
+>
 ثبت درخواست جدید
 </button>
 
+
 </section>
 
+
+
 <div class="footer">
+
 سوییچ به سوییچ | سرعت • امنیت • شفافیت
+
 </div>
+
 
 </main>
 
 </div>
 
 
+
 <script>
+
+/* =========================
+   متغیرهای اصلی
+========================= */
+
+let requestType = 'فروش خودرو';
+
+let selectedTime = '';
+
+let selectedJalaliDate = '';
+
+let calendarYear = 1405;
+
+let calendarMonth = 1;
+
+
+
+/* =========================
+   انتخاب نوع درخواست
+========================= */
+
+function typeSelect(type){
+
+requestType = type;
+
+const selected =
+document.getElementById('selected');
+
+selected.classList.remove('hidden');
+
+selected.innerText =
+'نوع درخواست انتخاب‌شده: ' + type;
+
+document
+.getElementById('form')
+.classList.remove('hidden');
+
+
+if(type === 'فروش خودرو'){
+
+document
+.getElementById('exchangeExtra')
+.style.display = 'none';
+
+}else{
+
+document
+.getElementById('exchangeExtra')
+.style.display = 'block';
+
+}
+
+
+setTimeout(function(){
+
+document
+.getElementById('form')
+.scrollIntoView({
+behavior:'smooth'
+});
+
+},100);
+
+}
+
+
+
+/* =========================
+   مدل‌های خودرو
+========================= */
+
+const carModels = {
+
+'ایران خودرو':[
+'پژو ۲۰۶',
+'پژو ۲۰۷',
+'پژو پارس',
+'دنا',
+'دنا پلاس',
+'سمند',
+'تارا',
+'رانا',
+'سورن',
+'هایما',
+'ری‌را'
+],
+
+'سایپا':[
+'پراید',
+'تیبا',
+'تیبا ۲',
+'ساینا',
+'کوییک',
+'شاهین',
+'اطلس'
+],
+
+'مدیران خودرو':[
+'MVM X22',
+'MVM X33',
+'MVM X55',
+'MVM 315',
+'MVM 530',
+'فونیکس FX',
+'فونیکس تیگو ۷',
+'فونیکس تیگو ۸'
+],
+
+'کرمان موتور':[
+'جک J4',
+'جک S3',
+'جک S5',
+'KMC J7',
+'KMC T8',
+'KMC X5'
+],
+
+'بهمن موتور':[
+'فیدلیتی',
+'دیگنیتی',
+'رسپکت',
+'مزدا ۳',
+'کاپرا'
+],
+
+'کیا':[
+'سراتو',
+'اپتیما',
+'اسپورتیج',
+'سورنتو',
+'پیکانتو',
+'موهاوی'
+],
+
+'هیوندای':[
+'اکسنت',
+'النترا',
+'سوناتا',
+'توسان',
+'سانتافه',
+'کونا',
+'آزرا'
+],
+
+'تویوتا':[
+'کرولا',
+'کمری',
+'راوفور',
+'پرادو',
+'هایلوکس',
+'یاریس'
+],
+
+'نیسان':[
+'ماکسیما',
+'مورانو',
+'قشقایی',
+'جوک',
+'پاترول'
+],
+
+'مزدا':[
+'مزدا ۳',
+'مزدا ۲',
+'CX-5'
+],
+
+'رنو':[
+'ساندرو',
+'استپ‌وی',
+'تندر ۹۰',
+'مگان',
+'داستر',
+'کپچر'
+],
+
+'پژو':[
+'پژو ۲۰۶',
+'پژو ۲۰۷',
+'پژو ۴۰۵',
+'پژو پارس',
+'پژو ۵۰۸'
+],
+
+'جک':[
+'J4',
+'S3',
+'S5'
+],
+
+'ام وی ام':[
+'X22',
+'X33',
+'X55',
+'315'
+]
+
+};
+
+
+
+function updateModels(){
+
+const brand =
+document.getElementById('brand').value;
+
+const model =
+document.getElementById('model');
+
+model.innerHTML =
+'<option value="">انتخاب مدل</option>';
+
+if(carModels[brand]){
+
+carModels[brand].forEach(function(item){
+
+const option =
+document.createElement('option');
+
+option.value = item;
+
+option.textContent = item;
+
+model.appendChild(option);
+
+});
+
+}else{
+
+model.innerHTML =
+'<option value="">مدل را انتخاب کنید</option>';
+
+}
+
+}
+
+
+
+/* =========================
+   فرمت کیلومتر
+========================= */
+
+function formatKilometer(input){
+
+let value = input.value;
+
+value = value.replace(/[^\d]/g,'');
+
+if(value){
+
+value =
+Number(value).toLocaleString('en-US');
+
+}
+
+input.value = value;
+
+}
+
+
+
+/* =========================
+   تقویم شمسی
+========================= */
+
 const weekDays = [
 'شنبه',
 'یکشنبه',
@@ -600,178 +1457,616 @@ const weekDays = [
 'جمعه'
 ];
 
+
 const jalaliMonths = [
-'فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور',
-'مهر','آبان','آذر','دی','بهمن','اسفند'
+'فروردین',
+'اردیبهشت',
+'خرداد',
+'تیر',
+'مرداد',
+'شهریور',
+'مهر',
+'آبان',
+'آذر',
+'دی',
+'بهمن',
+'اسفند'
 ];
 
-function gregorianToJalali(gy,gm,gd){
 
-let g_d_m=[0,31,59,90,120,151,181,212,243,273,304,334];
-let jy=(gy<=1600)?0:979;
 
-gy-= (gy<=1600)?621:1600;
+function jalaliMonthDays(year,month){
 
-let gy2=(gm>2)?gy+1:gy;
+if(month <= 6){
 
-let days=
-365*gy+
-Math.floor((gy2+3)/4)-
-Math.floor((gy2+99)/100)+
-Math.floor((gy2+399)/400)-
-80+
-gd+
-g_d_m[gm-1];
+return 31;
 
-jy+=33*Math.floor(days/12053);
-days%=12053;
-
-jy+=4*Math.floor(days/1461);
-days%=1461;
-
-if(days>365){
-jy+=Math.floor((days-1)/365);
-days=(days-1)%365;
 }
 
-let jm=(days<186)?
-1+Math.floor(days/31):
-7+Math.floor((days-186)/30);
+if(month <= 11){
 
-let jd=1+
-((days<186)?days%31:(days-186)%30);
+return 30;
 
-return [jy,jm,jd];
 }
 
-function getTodayJalali(){
+return isJalaliLeapYear(year) ? 30 : 29;
 
-const now=new Date();
+}
 
-return gregorianToJalali(
-now.getFullYear(),
-now.getMonth()+1,
-now.getDate()
+
+
+function isJalaliLeapYear(year){
+
+return [
+1391,
+1395,
+1399,
+1403,
+1408,
+1412,
+1416,
+1420,
+1424,
+1428,
+1432,
+1436,
+1440
+].includes(year);
+
+}
+
+
+
+/*
+تبدیل شمسی به میلادی
+*/
+
+function jalaliToGregorian(jy,jm,jd){
+
+jy = Number(jy) - 979;
+
+jm = Number(jm) - 1;
+
+jd = Number(jd) - 1;
+
+let jDayNo =
+365 * jy +
+Math.floor(jy / 33) * 8 +
+Math.floor((jy % 33 + 3) / 4);
+
+if(jm < 6){
+
+jDayNo += jm * 31;
+
+}else{
+
+jDayNo += jm * 30 + 6;
+
+}
+
+jDayNo += jd;
+
+let gDayNo =
+jDayNo + 79;
+
+let gy =
+1600 +
+400 *
+Math.floor(gDayNo / 146097);
+
+gDayNo %= 146097;
+
+let leap = true;
+
+if(gDayNo >= 36525){
+
+gDayNo--;
+
+gy +=
+100 *
+Math.floor(gDayNo / 36524);
+
+gDayNo %= 36524;
+
+if(gDayNo >= 365){
+
+gDayNo++;
+
+}else{
+
+leap = false;
+
+}
+
+}
+
+gy +=
+4 *
+Math.floor(gDayNo / 1461);
+
+gDayNo %= 1461;
+
+if(gDayNo >= 366){
+
+leap = false;
+
+gDayNo--;
+
+gy +=
+Math.floor(gDayNo / 365);
+
+gDayNo %= 365;
+
+}
+
+let gd =
+gDayNo + 1;
+
+const monthDays =
+[
+31,
+(leap ? 29 : 28),
+31,
+30,
+31,
+30,
+31,
+31,
+30,
+31,
+30,
+31
+];
+
+let gm = 0;
+
+while(
+gm < 12 &&
+gd > monthDays[gm]
+){
+
+gd -= monthDays[gm];
+
+gm++;
+
+}
+
+return {
+year:gy,
+month:gm + 1,
+day:gd
+};
+
+}
+
+
+
+/* =========================
+   نام روز هفته
+========================= */
+
+function getWeekDay(jy,jm,jd){
+
+const g =
+jalaliToGregorian(
+jy,
+jm,
+jd
 );
 
+const date =
+new Date(
+g.year,
+g.month - 1,
+g.day
+);
+
+const jsDay =
+date.getDay();
+
+const index =
+(jsDay + 1) % 7;
+
+return weekDays[index];
+
 }
+
+
+
+/* =========================
+   نمایش تقویم
+========================= */
 
 function renderJalaliCalendar(){
 
-const calendar=document.getElementById('jalaliCalendar');
-
-if(!calendar) return;
-
-const today=getTodayJalali();
-
-let html='';
-
-for(let i=0;i<14;i++){
-
-let date=new Date();
-
-date.setDate(date.getDate()+i);
-
-let jy=gregorianToJalali(
-date.getFullYear(),
-date.getMonth()+1,
-date.getDate()
+const calendar =
+document.getElementById(
+'jalaliCalendar'
 );
 
-let dayIndex=date.getDay();
+if(!calendar){
 
-let weekIndex=(dayIndex+1)%7;
-
-let dateValue=
-jy[0]+'-'+
-String(jy[1]).padStart(2,'0')+'-'+
-String(jy[2]).padStart(2,'0');
-
-html+=`
-<button
-type="button"
-class="jalali-day"
-onclick="selectJalaliDate('${dateValue}','${weekDays[weekIndex]} ${jy[2]} ${jalaliMonths[jy[1]-1]} ${jy[0]}')">
-
-<span>${weekDays[weekIndex]}</span>
-<b>${jy[2]}</b>
-<small>${jalaliMonths[jy[1]-1]}</small>
-
-</button>
-`;
+return;
 
 }
 
-calendar.innerHTML=html;
 
-}
+let html = '';
 
-function selectJalaliDate(value,text){
+html +=
+'<div class="calendar-header">';
 
-document.getElementById('date').value=value;
+html +=
+'<button type="button" onclick="changeMonth(-1)">‹</button>';
 
-document.querySelectorAll('.jalali-day')
-.forEach(function(x){
-x.classList.remove('selected');
+html +=
+'<div class="calendar-title">' +
+jalaliMonths[calendarMonth - 1] +
+' ' +
+calendarYear +
+'</div>';
+
+html +=
+'<button type="button" onclick="changeMonth(1)">›</button>';
+
+html +=
+'</div>';
+
+
+html +=
+'<div class="calendar-weekdays">';
+
+weekDays.forEach(function(day){
+
+html +=
+'<div>' +
+day.substring(0,2) +
+'</div>';
+
 });
 
-event.currentTarget.classList.add('selected');
+html +=
+'</div>';
 
-document.getElementById('selectedDateText').innerText=
-'تاریخ انتخاب‌شده: '+text;
+
+html +=
+'<div class="calendar-days">';
+
+
+/*
+تعیین جایگاه روز اول ماه
+*/
+
+const firstGregorian =
+jalaliToGregorian(
+calendarYear,
+calendarMonth,
+1
+);
+
+const firstDate =
+new Date(
+firstGregorian.year,
+firstGregorian.month - 1,
+firstGregorian.day
+);
+
+const firstDay =
+(firstDate.getDay() + 1) % 7;
+
+
+/*
+خانه‌های خالی
+*/
+
+for(let i = 0; i < firstDay; i++){
+
+html +=
+'<div></div>';
 
 }
+
+
+/*
+روزهای ماه
+*/
+
+const totalDays =
+jalaliMonthDays(
+calendarYear,
+calendarMonth
+);
+
+
+for(
+let day = 1;
+day <= totalDays;
+day++
+){
+
+let selectedClass = '';
+
+if(
+selectedJalaliDate ===
+calendarYear + '/' +
+calendarMonth + '/' +
+day
+){
+
+selectedClass =
+' selected';
+
+}
+
+
+html +=
+'<button type="button" class="jalali-day' +
+selectedClass +
+'" onclick="selectJalaliDate(' +
+calendarYear +
+',' +
+calendarMonth +
+',' +
+day +
+')">' +
+day +
+'</button>';
+
+}
+
+
+html +=
+'</div>';
+
+calendar.innerHTML = html;
+
+}
+
+
+
+/* =========================
+   تغییر ماه
+========================= */
+
+function changeMonth(direction){
+
+calendarMonth += direction;
+
+
+if(calendarMonth > 12){
+
+calendarMonth = 1;
+
+calendarYear++;
+
+}
+
+
+if(calendarMonth < 1){
+
+calendarMonth = 12;
+
+calendarYear--;
+
+}
+
 
 renderJalaliCalendar();
-let requestType = 'فروش خودرو';
-let selectedTime = '';
 
-function typeSelect(type){
+}
 
-requestType = type;
 
-const selected = document.getElementById('selected');
 
-selected.classList.remove('hidden');
+/* =========================
+   انتخاب تاریخ
+========================= */
 
-selected.innerText =
-'نوع درخواست انتخاب‌شده: ' + type;
+function selectJalaliDate(year,month,day){
 
-document.getElementById('form').classList.remove('hidden');
+selectedJalaliDate =
+year + '/' +
+month + '/' +
+day;
 
-if(type === 'فروش خودرو'){
-document.getElementById('exchangeExtra').style.display = 'none';
+
+const weekDay =
+getWeekDay(
+year,
+month,
+day
+);
+
+
+const monthName =
+jalaliMonths[month - 1];
+
+
+document.getElementById('date').value =
+year + '/' +
+month + '/' +
+day;
+
+
+document.getElementById(
+'selectedDateText'
+).innerText =
+'تاریخ انتخاب‌شده: ' +
+weekDay +
+' ' +
+day +
+' ' +
+monthName +
+' ' +
+year;
+
+
+renderJalaliCalendar();
+
+}
+
+
+
+/* =========================
+   تاریخ امروز
+========================= */
+
+function getTodayJalali(){
+
+/*
+برای شروع تقویم روی سال ۱۴۰۵
+و ماه جاری شمسی قرار می‌گیرد.
+*/
+
+const today =
+new Date();
+
+const gy =
+today.getFullYear();
+
+const gm =
+today.getMonth() + 1;
+
+const gd =
+today.getDate();
+
+
+/*
+تبدیل تقریبی میلادی به شمسی
+*/
+
+let jy =
+gy - 621;
+
+let jm;
+
+let jd;
+
+
+if(gm <= 3){
+
+jm =
+gm + 9;
+
 }else{
-document.getElementById('exchangeExtra').style.display = 'block';
-}
 
-setTimeout(function(){
-document.getElementById('form').scrollIntoView({
-behavior:'smooth'
-});
-},100);
+jm =
+gm - 3;
 
 }
 
+
+if(gm <= 3){
+
+jy--;
+
+}
+
+
+jd =
+gd;
+
+
+return {
+year:jy,
+month:jm,
+day:jd
+};
+
+}
+
+
+
+/* =========================
+   شروع تقویم
+========================= */
+
+(function(){
+
+const today =
+getTodayJalali();
+
+calendarYear =
+today.year;
+
+calendarMonth =
+today.month;
+
+
+/*
+محدوده مناسب برای سال جاری
+*/
+
+if(
+calendarYear < 1400 ||
+calendarYear > 1450
+){
+
+calendarYear = 1405;
+
+calendarMonth = 1;
+
+}
+
+
+renderJalaliCalendar();
+
+})();
+
+
+
+/* =========================
+   ادامه فرم
+========================= */
 
 function goBooking(){
 
-const name = document.getElementById('name').value.trim();
-const phone = document.getElementById('phone').value.trim();
-const brand = document.getElementById('brand').value.trim();
-const model = document.getElementById('model').value.trim();
+const name =
+document.getElementById('name')
+.value.trim();
 
-if(!name || !phone || !brand || !model){
+const phone =
+document.getElementById('phone')
+.value.trim();
 
-alert('لطفاً نام، شماره موبایل، برند و مدل خودرو را وارد کنید.');
+const brand =
+document.getElementById('brand')
+.value;
+
+const model =
+document.getElementById('model')
+.value;
+
+const year =
+document.getElementById('year')
+.value;
+
+
+if(
+!name ||
+!phone ||
+!brand ||
+!model ||
+!year
+){
+
+alert(
+'لطفاً نام، شماره موبایل، برند، مدل و سال ساخت خودرو را انتخاب کنید.'
+);
 
 return;
 
 }
 
-document.getElementById('form').classList.add('hidden');
 
-document.getElementById('booking').classList.remove('hidden');
+document
+.getElementById('form')
+.classList.add('hidden');
+
+
+document
+.getElementById('booking')
+.classList.remove('hidden');
+
 
 window.scrollTo({
 top:0,
@@ -780,51 +2075,110 @@ behavior:'smooth'
 
 }
 
+
+
+/* =========================
+   انتخاب ساعت
+========================= */
 
 function pick(el){
 
-document.querySelectorAll('.slot').forEach(function(x){
+document
+.querySelectorAll('.slot')
+.forEach(function(x){
+
 x.classList.remove('selected');
+
 });
+
 
 el.classList.add('selected');
 
-selectedTime = el.innerText;
+selectedTime =
+el.innerText;
 
 }
 
+
+
+/* =========================
+   ثبت درخواست
+========================= */
 
 function submitRequest(){
 
-const date = document.getElementById('date').value;
+const date =
+document.getElementById('date')
+.value;
+
 
 if(!date){
 
-alert('لطفاً تاریخ کارشناسی را انتخاب کنید.');
+alert(
+'لطفاً تاریخ کارشناسی را انتخاب کنید.'
+);
 
 return;
 
 }
+
 
 if(!selectedTime){
 
-alert('لطفاً ساعت کارشناسی را انتخاب کنید.');
+alert(
+'لطفاً ساعت کارشناسی را انتخاب کنید.'
+);
 
 return;
 
 }
 
-document.getElementById('doneType').innerText = requestType;
+
+document.getElementById(
+'doneType'
+).innerText =
+requestType;
+
+
+document.getElementById(
+'doneDate'
+).innerText =
+document.getElementById(
+'selectedDateText'
+).innerText.replace(
+'تاریخ انتخاب‌شده: ',
+''
+);
+
+
+document.getElementById(
+'doneTime'
+).innerText =
+selectedTime;
+
 
 const number =
-Math.floor(10000 + Math.random() * 90000);
+Math.floor(
+10000 +
+Math.random() * 90000
+);
 
-document.getElementById('tracking').innerText =
+
+document.getElementById(
+'tracking'
+).innerText =
 'STW-' + number;
 
-document.getElementById('booking').classList.add('hidden');
 
-document.getElementById('done').classList.remove('hidden');
+document
+.getElementById('booking')
+.classList.add('hidden');
+
+
+document
+.getElementById('done')
+.classList.remove('hidden');
+
 
 window.scrollTo({
 top:0,
@@ -834,11 +2188,22 @@ behavior:'smooth'
 }
 
 
+
+/* =========================
+   برگشت
+========================= */
+
 function backToForm(){
 
-document.getElementById('booking').classList.add('hidden');
+document
+.getElementById('booking')
+.classList.add('hidden');
 
-document.getElementById('form').classList.remove('hidden');
+
+document
+.getElementById('form')
+.classList.remove('hidden');
+
 
 window.scrollTo({
 top:0,
@@ -850,4 +2215,4 @@ behavior:'smooth'
 </script>
 
 </body>
-</html>
+  </html>
