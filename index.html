@@ -1,95 +1,667 @@
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>سوییچ به سوییچ | فروشنده</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سوییچ به سوییچ | معاوضه آسان و سریع خودرو</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#06101d;color:#eef6ff;font-family:Tahoma,Arial,sans-serif}.app{max-width:500px;margin:auto;min-height:100vh;background:linear-gradient(#0b1728,#07111e)}
-header{padding:22px 18px;border-bottom:1px solid #1d344c;background:#0b1728}.logo{font-size:23px;font-weight:800}.logo b{color:#32a9ff}.sub{font-size:11px;color:#91a8bd;margin-top:6px}
-main{padding:16px 15px 35px}.card{background:#102034;border:1px solid #203c57;border-radius:18px;padding:17px;margin:12px 0}.hero{background:linear-gradient(135deg,#103b62,#102238)}h1{font-size:24px;margin:0 0 10px}.muted{font-size:13px;color:#9eb1c4;line-height:2}.title{font-size:17px;font-weight:800;margin:22px 2px 10px}
-.btn{width:100%;padding:14px;border:0;border-radius:12px;margin-top:11px;font-family:inherit;font-weight:800;font-size:14px;cursor:pointer}.primary{background:#1799ed;color:#fff}.secondary{background:#142b41;color:#dcecf9;border:1px solid #2b4963}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{padding:18px 10px;text-align:center;cursor:pointer}.icon{font-size:29px;display:block;margin-bottom:8px}
-label{display:block;color:#9eb2c4;font-size:12px;margin-top:13px}input,select,textarea{width:100%;padding:12px;margin-top:7px;background:#091727;border:1px solid #29455e;color:#fff;border-radius:10px;font-family:inherit}
-.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px}.slot{padding:12px 4px;border:1px solid #294761;background:#0b1928;color:#c2d3e1;border-radius:10px;font-family:inherit}.slot.busy{opacity:.3;text-decoration:line-through}.slot.selected{background:#14547d;border-color:#32afff;color:#fff}
-.row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #1d3448;font-size:13px}.row:last-child{border:0}.badge{font-size:10px;padding:5px 8px;border-radius:8px;background:#164563;color:#70c7ff}
-.notice{background:#102f45;border:1px solid #236188;border-radius:11px;padding:12px;font-size:12px;line-height:1.9}
-.step{display:flex;gap:10px;align-items:flex-start;padding:10px 0}.stepnum{min-width:27px;height:27px;border-radius:50%;background:#14547d;text-align:center;padding-top:5px;font-size:11px}
-.hidden{display:none}
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#f3f7fb;
+color:#142333;
+font-family:Tahoma,Arial,sans-serif;
+}
+
+.app{
+max-width:520px;
+margin:auto;
+min-height:100vh;
+background:#fff;
+box-shadow:0 0 30px rgba(0,0,0,.08);
+}
+
+header{
+padding:22px 20px;
+background:linear-gradient(135deg,#0b3d66,#168bd1);
+color:white;
+}
+
+.logo{
+font-size:25px;
+font-weight:900;
+}
+
+.logo span{
+color:#aee3ff;
+}
+
+.sub{
+font-size:12px;
+margin-top:7px;
+opacity:.9;
+}
+
+main{
+padding:18px 16px 40px;
+}
+
+.card{
+background:#fff;
+border:1px solid #e1eaf1;
+border-radius:18px;
+padding:18px;
+margin:13px 0;
+box-shadow:0 5px 18px rgba(20,55,80,.05);
+}
+
+.hero{
+background:linear-gradient(135deg,#e8f6ff,#f7fbff);
+border:1px solid #cfeaff;
+}
+
+h1{
+font-size:23px;
+line-height:1.7;
+margin:0 0 8px;
+color:#123d5d;
+}
+
+.muted{
+font-size:13px;
+line-height:2;
+color:#65788a;
+}
+
+.title{
+font-size:17px;
+font-weight:900;
+margin:24px 2px 10px;
+color:#173b55;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:11px;
+}
+
+.choice{
+text-align:center;
+cursor:pointer;
+transition:.2s;
+}
+
+.choice:hover{
+transform:translateY(-2px);
+border-color:#1c9be8;
+}
+
+.icon{
+font-size:32px;
+display:block;
+margin-bottom:8px;
+}
+
+.choice b{
+font-size:15px;
+}
+
+label{
+display:block;
+font-size:12px;
+font-weight:bold;
+color:#607486;
+margin-top:14px;
+}
+
+input,select,textarea{
+width:100%;
+padding:13px;
+margin-top:7px;
+background:#f8fbfd;
+border:1px solid #d8e4ec;
+color:#183247;
+border-radius:11px;
+font-family:inherit;
+font-size:13px;
+outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+border-color:#1898df;
+background:#fff;
+}
+
+.btn{
+width:100%;
+padding:14px;
+border:0;
+border-radius:12px;
+margin-top:14px;
+font-family:inherit;
+font-weight:900;
+font-size:14px;
+cursor:pointer;
+}
+
+.primary{
+background:linear-gradient(135deg,#078bd5,#19a5ed);
+color:#fff;
+box-shadow:0 5px 15px rgba(15,148,220,.2);
+}
+
+.secondary{
+background:#eef6fb;
+color:#17628b;
+border:1px solid #cfe2ee;
+}
+
+.notice{
+background:#edf8ff;
+border:1px solid #c9e9fb;
+border-radius:12px;
+padding:13px;
+font-size:12px;
+line-height:2;
+color:#35627d;
+}
+
+.steps{
+margin-top:10px;
+}
+
+.step{
+display:flex;
+gap:11px;
+align-items:flex-start;
+padding:12px 0;
+border-bottom:1px solid #edf1f4;
+}
+
+.step:last-child{
+border-bottom:0;
+}
+
+.stepnum{
+min-width:29px;
+height:29px;
+border-radius:50%;
+background:#168fd4;
+color:white;
+text-align:center;
+padding-top:6px;
+font-size:11px;
+font-weight:bold;
+}
+
+.slots{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+margin-top:9px;
+}
+
+.slot{
+padding:12px 4px;
+border:1px solid #d4e2eb;
+background:#f8fbfd;
+color:#31566e;
+border-radius:10px;
+font-family:inherit;
+cursor:pointer;
+}
+
+.slot.selected{
+background:#dff3ff;
+border-color:#159be7;
+color:#0874aa;
+font-weight:bold;
+}
+
+.slot.busy{
+opacity:.35;
+text-decoration:line-through;
+cursor:not-allowed;
+}
+
+.summary{
+background:#f7fafc;
+border-radius:12px;
+padding:12px;
+margin-top:12px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+gap:15px;
+padding:10px 0;
+border-bottom:1px solid #e7eef3;
+font-size:12px;
+}
+
+.row:last-child{
+border-bottom:0;
+}
+
+.badge{
+font-size:10px;
+padding:5px 9px;
+border-radius:8px;
+background:#e4f6ff;
+color:#0877ae;
+font-weight:bold;
+}
+
+.success{
+text-align:center;
+padding:15px 5px;
+}
+
+.success-icon{
+font-size:48px;
+margin-bottom:8px;
+}
+
+.hidden{
+display:none;
+}
+
+.footer{
+text-align:center;
+font-size:11px;
+color:#91a0ab;
+padding:20px 0;
+}
 </style>
 </head>
-<body><div class="app">
-<header><div class="logo">سوییچ <b>به</b> سوییچ</div><div class="sub">فروش خودرو | معاوضه خودرو</div></header>
+
+<body>
+
+<div class="app">
+
+<header>
+<div class="logo">سوییچ <span>به</span> سوییچ</div>
+<div class="sub">معاوضه آسان و سریع خودرو با امنیت و شفافیت</div>
+</header>
+
 <main>
 
 <section id="start">
-<div class="card hero"><h1>خودروت رو بفروش یا معاوضه کن</h1><div class="muted">مشخصات خودرو را ثبت کن، زمان کارشناسی را انتخاب کن و بقیه مسیر را به تیم سوییچ به سوییچ بسپار.</div></div>
-<div class="title">چه کاری می‌خواهی انجام بدهی؟</div>
-<div class="grid">
-<div class="card choice" onclick="typeSelect('فروش خودرو')"><span class="icon">💰</span><b>فروش خودرو</b><div class="muted">برای فروش سریع و شفاف</div></div>
-<div class="card choice" onclick="typeSelect('معاوضه خودرو')"><span class="icon">🔄</span><b>معاوضه خودرو</b><div class="muted">خودروی فعلی در برابر انتخاب بعدی</div></div>
+
+<div class="card hero">
+<h1>خودروت رو بفروش یا معاوضه کن</h1>
+<div class="muted">
+مشخصات خودروت رو ثبت کن؛ تیم سوییچ به سوییچ ادامه مسیر رو با امنیت، شفافیت و سرعت پیگیری می‌کنه.
 </div>
+</div>
+
+<div class="title">چه خدمتی می‌خواهی؟</div>
+
+<div class="grid">
+
+<div class="card choice" onclick="typeSelect('فروش خودرو')">
+<span class="icon">🚗</span>
+<b>فروش خودرو</b>
+<div class="muted">برای فروش سریع و شفاف</div>
+</div>
+
+<div class="card choice" onclick="typeSelect('معاوضه خودرو')">
+<span class="icon">🔄</span>
+<b>معاوضه خودرو</b>
+<div class="muted">خودروی فعلی در برابر خودروی موردنظر</div>
+</div>
+
+</div>
+
 <div id="selected" class="notice hidden"></div>
+
 </section>
+
 
 <section id="form" class="hidden">
-<div class="title">۱. مشخصات مالک و خودرو</div>
+
+<div class="title">۱. اطلاعات شما و خودرو</div>
+
 <div class="card">
-<label>نام و نام خانوادگی مالک<input id="name" placeholder="مثلاً علی رضایی"></label>
-<label>شماره موبایل<input placeholder="09xxxxxxxxx"></label>
-<label>برند خودرو<input placeholder="مثلاً ام‌وی‌ام"></label>
-<label>مدل خودرو<input placeholder="مثلاً X22"></label>
-<label>تیپ<input placeholder="مثلاً Sport Luxury"></label>
-<label>سال ساخت<input placeholder="۱۴۰۲"></label>
-<label>کارکرد<input placeholder="مثلاً ۱۴۰۰۰۰ کیلومتر"></label>
-<label>رنگ<input placeholder="مثلاً سفید"></label>
-<label>شماره پلاک<input placeholder="در صورت نیاز"></label>
-<label>وضعیت خودرو<textarea rows="3" placeholder="هر توضیحی که درباره خودرو لازم است"></textarea></label>
+
+<label>
+نام و نام خانوادگی
+<input id="name" placeholder="مثلاً علی رضایی">
+</label>
+
+<label>
+شماره موبایل
+<input id="phone" type="tel" placeholder="09xxxxxxxxx">
+</label>
+
+<label>
+برند خودرو
+<input id="brand" placeholder="مثلاً ام‌وی‌ام">
+</label>
+
+<label>
+مدل خودرو
+<input id="model" placeholder="مثلاً X22">
+</label>
+
+<label>
+تیپ خودرو
+<input id="trim" placeholder="مثلاً Sport Luxury">
+</label>
+
+<label>
+سال ساخت
+<input id="year" placeholder="مثلاً ۱۴۰۲">
+</label>
+
+<label>
+کارکرد
+<input id="km" placeholder="مثلاً ۱۴۰۰۰۰ کیلومتر">
+</label>
+
+<label>
+رنگ خودرو
+<input id="color" placeholder="مثلاً سفید">
+</label>
+
+<label>
+وضعیت خودرو
+<textarea id="condition" rows="3" placeholder="توضیحات مهم درباره خودرو، تصادف، رنگ، وضعیت فنی و..."></textarea>
+</label>
+
 <div id="exchangeExtra">
-<label>خودروی موردنظر برای معاوضه<input placeholder="مثلاً SUV اتوماتیک"></label>
-<label>مبلغ تکمیلی یا بودجه<input placeholder="مثلاً ۳۰۰ میلیون تومان"></label>
+
+<div class="title">خودروی موردنظر برای معاوضه</div>
+
+<label>
+نوع یا مدل خودروی موردنظر
+<input id="wantedCar" placeholder="مثلاً SUV اتوماتیک">
+</label>
+
+<label>
+بودجه یا مبلغ تکمیلی
+<input id="budget" placeholder="مثلاً ۳۰۰ میلیون تومان">
+</label>
+
 </div>
-<button class="btn primary" onclick="goBooking()">ادامه: انتخاب زمان کارشناسی</button>
+
+<button class="btn primary" onclick="goBooking()">
+ادامه و انتخاب زمان کارشناسی
+</button>
+
 </div>
+
 </section>
+
 
 <section id="booking" class="hidden">
-<div class="title">۲. رزرو کارشناسی</div>
+
+<div class="title">۲. زمان کارشناسی</div>
+
 <div class="card">
-<div class="notice">کارشناس سوییچ به سوییچ برای رؤیت خودرو و کارشناسی حضوری اعزام می‌شود. بعد از ثبت درخواست، همکاران برای هماهنگی آدرس با شما تماس می‌گیرند.</div>
-<label>تاریخ موردنظر<input type="date"></label>
+
+<div class="notice">
+کارشناس سوییچ به سوییچ برای بررسی حضوری خودرو هماهنگ می‌شود. پس از ثبت درخواست، همکاران ما برای هماهنگی آدرس با شما تماس می‌گیرند.
+</div>
+
+<label>
+تاریخ موردنظر
+<input id="date" type="date">
+</label>
+
 <div class="title">ساعت موردنظر</div>
+
 <div class="slots">
-<button class="slot" onclick="pick(this)">۰۹:۰۰</button><button class="slot" onclick="pick(this)">۱۰:۰۰</button><button class="slot" onclick="pick(this)">۱۱:۰۰</button>
-<button class="slot" onclick="pick(this)">۱۲:۰۰</button><button class="slot" onclick="pick(this)">۱۳:۰۰</button><button class="slot busy">۱۴:۰۰</button>
-<button class="slot" onclick="pick(this)">۱۵:۰۰</button><button class="slot" onclick="pick(this)">۱۶:۰۰</button><button class="slot" onclick="pick(this)">۱۷:۰۰</button>
+
+<button class="slot" onclick="pick(this)">۰۹:۰۰</button>
+<button class="slot" onclick="pick(this)">۱۰:۰۰</button>
+<button class="slot" onclick="pick(this)">۱۱:۰۰</button>
+
+<button class="slot" onclick="pick(this)">۱۲:۰۰</button>
+<button class="slot" onclick="pick(this)">۱۳:۰۰</button>
+<button class="slot busy">۱۴:۰۰</button>
+
+<button class="slot" onclick="pick(this)">۱۵:۰۰</button>
+<button class="slot" onclick="pick(this)">۱۶:۰۰</button>
+<button class="slot" onclick="pick(this)">۱۷:۰۰</button>
+
 </div>
-<button class="btn primary" onclick="submitRequest()">ثبت درخواست و رزرو</button>
+
+<button class="btn primary" onclick="submitRequest()">
+ثبت درخواست
+</button>
+
+<button class="btn secondary" onclick="backToForm()">
+بازگشت
+</button>
+
 </div>
+
 </section>
+
 
 <section id="done" class="hidden">
-<div class="card hero"><h1>درخواست شما ثبت شد ✅</h1><div class="muted">درخواست شما با موفقیت ثبت شده است.</div></div>
-<div class="card">
-<div class="row"><span>کد پیگیری</span><b>STW-00126</b></div>
-<div class="row"><span>نوع درخواست</span><b id="doneType">فروش خودرو</b></div>
-<div class="row"><span>وضعیت</span><span class="badge">منتظر هماهنگی</span></div>
+
+<div class="card success">
+
+<div class="success-icon">✅</div>
+
+<h1>درخواست شما ثبت شد</h1>
+
+<div class="muted">
+درخواست شما با موفقیت ثبت شد و همکاران سوییچ به سوییچ برای هماهنگی با شما تماس می‌گیرند.
 </div>
-<div class="notice">همکاران سوییچ به سوییچ در اولین فرصت با شما تماس می‌گیرند، آدرس دقیق خودرو را دریافت می‌کنند و کارشناس اعزام می‌شود.</div>
-<div class="title">بعد از کارشناسی چه اتفاقی می‌افتد؟</div>
-<div class="card">
-<div class="step"><span class="stepnum">۱</span><div><b>کارشناسی حضوری</b><div class="muted">کارشناس خودرو را از نزدیک بررسی و گزارش را ثبت می‌کند.</div></div></div>
-<div class="step"><span class="stepnum">۲</span><div><b>بررسی مدارک</b><div class="muted">مدارک توسط تیم ما بررسی می‌شود.</div></div></div>
-<div class="step"><span class="stepnum">۳</span><div><b>دریافت پیشنهاد خرید</b><div class="muted">پیشنهادهای خرید برای شما بررسی می‌شوند.</div></div></div>
-<div class="step"><span class="stepnum">۴</span><div><b>ادامه فرآیند</b><div class="muted">در صورت تأیید شما، مراحل معامله ادامه پیدا می‌کند.</div></div></div>
+
 </div>
+
+<div class="card">
+
+<div class="row">
+<span>کد پیگیری</span>
+<b id="tracking">STW-00126</b>
+</div>
+
+<div class="row">
+<span>نوع درخواست</span>
+<b id="doneType">فروش خودرو</b>
+</div>
+
+<div class="row">
+<span>وضعیت</span>
+<span class="badge">منتظر هماهنگی</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="title">مراحل بعدی</div>
+
+<div class="steps">
+
+<div class="step">
+<span class="stepnum">۱</span>
+<div>
+<b>هماهنگی با شما</b>
+<div class="muted">برای دریافت آدرس و هماهنگی کارشناسی با شما تماس می‌گیریم.</div>
+</div>
+</div>
+
+<div class="step">
+<span class="stepnum">۲</span>
+<div>
+<b>کارشناسی خودرو</b>
+<div class="muted">خودرو از نظر بدنه و وضعیت فنی بررسی می‌شود.</div>
+</div>
+</div>
+
+<div class="step">
+<span class="stepnum">۳</span>
+<div>
+<b>ارزیابی و پیشنهاد</b>
+<div class="muted">ارزش خودرو و شرایط معامله بررسی می‌شود.</div>
+</div>
+</div>
+
+<div class="step">
+<span class="stepnum">۴</span>
+<div>
+<b>ادامه معامله</b>
+<div class="muted">در صورت تأیید شما، مراحل معامله و معاوضه ادامه پیدا می‌کند.</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<button class="btn secondary" onclick="location.reload()">
+ثبت درخواست جدید
+</button>
+
 </section>
 
-</main></div>
+<div class="footer">
+سوییچ به سوییچ | سرعت • امنیت • شفافیت
+</div>
+
+</main>
+
+</div>
+
+
 <script>
-let requestType='فروش خودرو';
-function typeSelect(t){requestType=t;document.getElementById('selected').classList.remove('hidden');document.getElementById('selected').innerText='نوع درخواست انتخاب‌شده: '+t;document.getElementById('form').classList.remove('hidden');window.scrollTo(0,document.body.scrollHeight)}
-function goBooking(){document.getElementById('form').classList.add('hidden');document.getElementById('booking').classList.remove('hidden');window.scrollTo(0,0)}
-function pick(el){document.querySelectorAll('.slot').forEach(x=>x.classList.remove('selected'));el.classList.add('selected')}
-function submitRequest(){document.getElementById('booking').classList.add('hidden');document.getElementById('done').classList.remove('hidden');document.getElementById('doneType').innerText=requestType;window.scrollTo(0,0)}
+
+let requestType = 'فروش خودرو';
+let selectedTime = '';
+
+function typeSelect(type){
+
+requestType = type;
+
+const selected = document.getElementById('selected');
+
+selected.classList.remove('hidden');
+
+selected.innerText =
+'نوع درخواست انتخاب‌شده: ' + type;
+
+document.getElementById('form').classList.remove('hidden');
+
+if(type === 'فروش خودرو'){
+document.getElementById('exchangeExtra').style.display = 'none';
+}else{
+document.getElementById('exchangeExtra').style.display = 'block';
+}
+
+setTimeout(function(){
+document.getElementById('form').scrollIntoView({
+behavior:'smooth'
+});
+},100);
+
+}
+
+
+function goBooking(){
+
+const name = document.getElementById('name').value.trim();
+const phone = document.getElementById('phone').value.trim();
+const brand = document.getElementById('brand').value.trim();
+const model = document.getElementById('model').value.trim();
+
+if(!name || !phone || !brand || !model){
+
+alert('لطفاً نام، شماره موبایل، برند و مدل خودرو را وارد کنید.');
+
+return;
+
+}
+
+document.getElementById('form').classList.add('hidden');
+
+document.getElementById('booking').classList.remove('hidden');
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+}
+
+
+function pick(el){
+
+document.querySelectorAll('.slot').forEach(function(x){
+x.classList.remove('selected');
+});
+
+el.classList.add('selected');
+
+selectedTime = el.innerText;
+
+}
+
+
+function submitRequest(){
+
+const date = document.getElementById('date').value;
+
+if(!date){
+
+alert('لطفاً تاریخ کارشناسی را انتخاب کنید.');
+
+return;
+
+}
+
+if(!selectedTime){
+
+alert('لطفاً ساعت کارشناسی را انتخاب کنید.');
+
+return;
+
+}
+
+document.getElementById('doneType').innerText = requestType;
+
+const number =
+Math.floor(10000 + Math.random() * 90000);
+
+document.getElementById('tracking').innerText =
+'STW-' + number;
+
+document.getElementById('booking').classList.add('hidden');
+
+document.getElementById('done').classList.remove('hidden');
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+}
+
+
+function backToForm(){
+
+document.getElementById('booking').classList.add('hidden');
+
+document.getElementById('form').classList.remove('hidden');
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+}
+
 </script>
-</body></html>
+
+</body>
+</html>
