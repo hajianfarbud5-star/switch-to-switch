@@ -1,8 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>سوییچ به سوییچ | معاوضه آسان و سریع خودرو</title>
 
@@ -15,92 +18,84 @@ box-sizing:border-box;
 body{
 margin:0;
 background:#f3f7fb;
-color:#142333;
 font-family:Tahoma,Arial,sans-serif;
+color:#17384d;
 }
 
 .app{
 max-width:520px;
 margin:auto;
 min-height:100vh;
-background:#fff;
-box-shadow:0 0 30px rgba(0,0,0,.08);
+background:white;
+box-shadow:0 0 25px rgba(0,0,0,.08);
 }
 
 header{
-padding:22px 20px;
-background:linear-gradient(135deg,#0b3d66,#168bd1);
+background:linear-gradient(135deg,#0b4770,#1598dc);
 color:white;
+padding:24px 20px;
 }
 
 .logo{
 font-size:25px;
-font-weight:900;
+font-weight:bold;
 }
 
 .logo span{
-color:#aee3ff;
+color:#bdeaff;
 }
 
 .sub{
 font-size:12px;
 margin-top:7px;
-opacity:.9;
 }
 
 main{
-padding:18px 16px 40px;
+padding:18px;
 }
 
 .card{
-background:#fff;
-border:1px solid #e1eaf1;
-border-radius:18px;
+background:white;
+border:1px solid #dfebf2;
+border-radius:17px;
 padding:18px;
-margin:13px 0;
-box-shadow:0 5px 18px rgba(20,55,80,.05);
+margin-bottom:14px;
+box-shadow:0 5px 18px rgba(20,60,90,.05);
 }
 
 .hero{
-background:linear-gradient(135deg,#e8f6ff,#f7fbff);
-border:1px solid #cfeaff;
+background:#eef8ff;
 }
 
 h1{
-font-size:23px;
-line-height:1.7;
+font-size:22px;
+line-height:1.8;
 margin:0 0 8px;
-color:#123d5d;
+color:#123f5e;
 }
 
 .muted{
 font-size:13px;
 line-height:2;
-color:#65788a;
+color:#6a7e8d;
 }
 
 .title{
-font-size:17px;
-font-weight:900;
-margin:24px 2px 10px;
-color:#173b55;
+font-size:16px;
+font-weight:bold;
+margin:20px 0 10px;
+color:#173f59;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:11px;
+gap:10px;
 }
 
 .choice{
 text-align:center;
 cursor:pointer;
-transition:.2s;
-}
-
-.choice:hover{
-transform:translateY(-2px);
-border-color:#1c9be8;
 }
 
 .icon{
@@ -110,14 +105,14 @@ margin-bottom:8px;
 }
 
 .choice b{
-font-size:15px;
+font-size:14px;
 }
 
 label{
 display:block;
 font-size:12px;
 font-weight:bold;
-color:#607486;
+color:#60798a;
 margin-top:14px;
 }
 
@@ -125,40 +120,39 @@ input,
 select,
 textarea{
 width:100%;
-padding:13px;
 margin-top:7px;
-background:#f8fbfd;
-border:1px solid #d8e4ec;
-color:#183247;
+padding:13px;
+border:1px solid #d7e4eb;
 border-radius:11px;
+background:#f8fbfd;
 font-family:inherit;
 font-size:13px;
+color:#17384d;
 outline:none;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-border-color:#1898df;
-background:#fff;
+border-color:#1599df;
+background:white;
 }
 
 .btn{
 width:100%;
-padding:14px;
 border:0;
-border-radius:12px;
+border-radius:11px;
+padding:14px;
 margin-top:14px;
 font-family:inherit;
-font-weight:900;
 font-size:14px;
+font-weight:bold;
 cursor:pointer;
 }
 
 .primary{
 background:linear-gradient(135deg,#078bd5,#19a5ed);
-color:#fff;
-box-shadow:0 5px 15px rgba(15,148,220,.2);
+color:white;
 }
 
 .secondary{
@@ -169,56 +163,32 @@ border:1px solid #cfe2ee;
 
 .notice{
 background:#edf8ff;
-border:1px solid #c9e9fb;
-border-radius:12px;
-padding:13px;
+border:1px solid #c8e8f8;
+border-radius:11px;
+padding:12px;
 font-size:12px;
 line-height:2;
-color:#35627d;
+color:#35647d;
 }
 
-.steps{
-margin-top:10px;
-}
-
-.step{
-display:flex;
-gap:11px;
-align-items:flex-start;
-padding:12px 0;
-border-bottom:1px solid #edf1f4;
-}
-
-.step:last-child{
-border-bottom:0;
-}
-
-.stepnum{
-min-width:29px;
-height:29px;
-border-radius:50%;
-background:#168fd4;
-color:white;
-text-align:center;
-padding-top:6px;
-font-size:11px;
-font-weight:bold;
+.hidden{
+display:none;
 }
 
 .slots{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:8px;
-margin-top:9px;
+margin-top:10px;
 }
 
 .slot{
-padding:12px 4px;
 border:1px solid #d4e2eb;
 background:#f8fbfd;
-color:#31566e;
 border-radius:10px;
+padding:12px 4px;
 font-family:inherit;
+color:#31566e;
 cursor:pointer;
 }
 
@@ -231,21 +201,109 @@ font-weight:bold;
 
 .slot.busy{
 opacity:.35;
-text-decoration:line-through;
 cursor:not-allowed;
 }
 
-.summary{
+.calendar{
+margin-top:8px;
+border:1px solid #d8e4ec;
+border-radius:14px;
+overflow:hidden;
+background:white;
+}
+
+.calendar-top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:linear-gradient(135deg,#0b4770,#1598dc);
+color:white;
+padding:11px;
+}
+
+.calendar-top button{
+border:0;
+background:rgba(255,255,255,.2);
+color:white;
+width:35px;
+height:35px;
+border-radius:8px;
+font-size:20px;
+cursor:pointer;
+}
+
+.calendar-title{
+font-size:14px;
+font-weight:bold;
+}
+
+.weekdays{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+background:#f3f7fa;
+}
+
+.weekdays div{
+text-align:center;
+font-size:9px;
+font-weight:bold;
+padding:8px 1px;
+color:#708392;
+}
+
+.days{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:4px;
+padding:8px;
+}
+
+.day{
+border:0;
 background:#f7fafc;
-border-radius:12px;
-padding:12px;
-margin-top:12px;
+border-radius:8px;
+min-height:36px;
+font-family:inherit;
+font-size:12px;
+color:#294d63;
+cursor:pointer;
+}
+
+.day:hover{
+background:#dff3ff;
+}
+
+.day.selected{
+background:#1598dc;
+color:white;
+font-weight:bold;
+}
+
+.selected-date{
+margin-top:9px;
+background:#edf8ff;
+border:1px solid #c8e8f8;
+border-radius:10px;
+padding:10px;
+text-align:center;
+font-size:12px;
+font-weight:bold;
+color:#17628b;
+}
+
+.success{
+text-align:center;
+padding:15px;
+}
+
+.success-icon{
+font-size:50px;
 }
 
 .row{
 display:flex;
 justify-content:space-between;
-gap:15px;
+gap:10px;
 padding:10px 0;
 border-bottom:1px solid #e7eef3;
 font-size:12px;
@@ -256,144 +314,54 @@ border-bottom:0;
 }
 
 .badge{
-font-size:10px;
-padding:5px 9px;
-border-radius:8px;
 background:#e4f6ff;
 color:#0877ae;
+padding:5px 8px;
+border-radius:7px;
+font-size:10px;
 font-weight:bold;
 }
 
-.success{
+.step{
+display:flex;
+gap:10px;
+padding:12px 0;
+border-bottom:1px solid #edf1f4;
+}
+
+.step:last-child{
+border-bottom:0;
+}
+
+.step-number{
+min-width:28px;
+height:28px;
+border-radius:50%;
+background:#1598dc;
+color:white;
 text-align:center;
-padding:15px 5px;
-}
-
-.success-icon{
-font-size:48px;
-margin-bottom:8px;
-}
-
-.hidden{
-display:none;
+padding-top:6px;
+font-size:11px;
+font-weight:bold;
 }
 
 .footer{
 text-align:center;
-font-size:11px;
 color:#91a0ab;
+font-size:11px;
 padding:20px 0;
 }
 
-
-/* =========================
-   تقویم شمسی
-========================= */
-
-.jalali-calendar{
-margin-top:8px;
-border:1px solid #d8e4ec;
-border-radius:15px;
-overflow:hidden;
-background:#fff;
-}
-
-.calendar-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:13px;
-background:linear-gradient(135deg,#0b3d66,#168bd1);
-color:#fff;
-}
-
-.calendar-header button{
-width:36px;
-height:36px;
-border:0;
-border-radius:9px;
-background:rgba(255,255,255,.15);
-color:#fff;
-font-size:20px;
-cursor:pointer;
-}
-
-.calendar-title{
-font-weight:900;
-font-size:14px;
-}
-
-.calendar-weekdays{
-display:grid;
-grid-template-columns:repeat(7,1fr);
-background:#f4f8fb;
-border-bottom:1px solid #e2eaf0;
-}
-
-.calendar-weekdays div{
-text-align:center;
-padding:9px 2px;
-font-size:10px;
-font-weight:bold;
-color:#718394;
-}
-
-.calendar-days{
-display:grid;
-grid-template-columns:repeat(7,1fr);
-padding:8px;
-gap:4px;
-}
-
-.jalali-day{
-min-height:38px;
-border:0;
-border-radius:9px;
-background:#f7fafc;
-color:#24465d;
-font-family:inherit;
-cursor:pointer;
-font-size:12px;
-}
-
-.jalali-day:hover{
-background:#dff3ff;
-}
-
-.jalali-day.today{
-border:1px solid #159be7;
-}
-
-.jalali-day.selected{
-background:#168fd4;
-color:white;
-font-weight:bold;
-}
-
-.jalali-day.disabled{
-opacity:.25;
-cursor:not-allowed;
-}
-
-.selected-date-text{
-margin-top:9px;
-padding:11px;
-background:#edf8ff;
-border:1px solid #c9e9fb;
-border-radius:10px;
-font-size:12px;
-font-weight:bold;
-color:#17628b;
-text-align:center;
-}
-
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="app">
+
 
 <header>
 
@@ -411,9 +379,8 @@ text-align:center;
 <main>
 
 
-<!-- شروع -->
+<div id="start">
 
-<section id="start">
 
 <div class="card hero">
 
@@ -435,13 +402,12 @@ text-align:center;
 
 <div class="grid">
 
-<div class="card choice" onclick="typeSelect('فروش خودرو')">
+
+<div class="card choice" onclick="chooseType('فروش خودرو')">
 
 <span class="icon">🚗</span>
 
-<b>
-فروش خودرو
-</b>
+<b>فروش خودرو</b>
 
 <div class="muted">
 برای فروش سریع و شفاف
@@ -450,13 +416,11 @@ text-align:center;
 </div>
 
 
-<div class="card choice" onclick="typeSelect('معاوضه خودرو')">
+<div class="card choice" onclick="chooseType('معاوضه خودرو')">
 
 <span class="icon">🔄</span>
 
-<b>
-معاوضه خودرو
-</b>
+<b>معاوضه خودرو</b>
 
 <div class="muted">
 خودروی فعلی در برابر خودروی موردنظر
@@ -464,18 +428,19 @@ text-align:center;
 
 </div>
 
+
 </div>
 
 
-<div id="selected" class="notice hidden"></div>
-
-</section>
+<div id="selectedType" class="notice hidden"></div>
 
 
+</div>
 
-<!-- فرم خودرو -->
 
-<section id="form" class="hidden">
+
+<div id="form" class="hidden">
+
 
 <div class="title">
 ۱. اطلاعات شما و خودرو
@@ -486,20 +451,14 @@ text-align:center;
 
 
 <label>
-
 نام و نام خانوادگی
 
-<input
-id="name"
-placeholder="مثلاً علی رضایی"
->
+<input id="name" placeholder="مثلاً علی رضایی">
 
 </label>
 
 
-
 <label>
-
 شماره موبایل
 
 <input
@@ -512,51 +471,29 @@ placeholder="09xxxxxxxxx"
 </label>
 
 
-
 <label>
-
 برند خودرو
 
-<select id="brand" onchange="updateModels()">
+<select id="brand" onchange="loadModels()">
 
-<option value="">
-انتخاب برند
-</option>
+<option value="">انتخاب برند</option>
 
 <option>ایران خودرو</option>
 <option>سایپا</option>
 <option>مدیران خودرو</option>
 <option>کرمان موتور</option>
 <option>بهمن موتور</option>
-<option>فونیکس</option>
-<option>چری</option>
-<option>ام وی ام</option>
-<option>جک</option>
 <option>کیا</option>
 <option>هیوندای</option>
 <option>تویوتا</option>
 <option>نیسان</option>
 <option>مزدا</option>
-<option>بنز</option>
-<option>بی ام و</option>
-<option>آئودی</option>
-<option>فولکس واگن</option>
 <option>رنو</option>
 <option>پژو</option>
-<option>سیتروئن</option>
-<option>سوزوکی</option>
-<option>لیفان</option>
-<option>هایما</option>
-<option>دیگنیتی</option>
-<option>فیدلیتی</option>
-<option>لاماری</option>
-<option>رسپکت</option>
-<option>کوییک</option>
-<option>شاهین</option>
-<option>دنا</option>
-<option>سمند</option>
-<option>پراید</option>
-<option>تیبا</option>
+<option>ام وی ام</option>
+<option>جک</option>
+<option>فونیکس</option>
+<option>چری</option>
 <option>سایر</option>
 
 </select>
@@ -564,9 +501,7 @@ placeholder="09xxxxxxxxx"
 </label>
 
 
-
 <label>
-
 مدل خودرو
 
 <select id="model">
@@ -580,16 +515,12 @@ placeholder="09xxxxxxxxx"
 </label>
 
 
-
 <label>
-
 سال ساخت
 
 <select id="year">
 
-<option value="">
-انتخاب سال ساخت
-</option>
+<option value="">انتخاب سال ساخت</option>
 
 <option>۱۴۰۵</option>
 <option>۱۴۰۴</option>
@@ -617,23 +548,18 @@ placeholder="09xxxxxxxxx"
 <option>۱۳۸۲</option>
 <option>۱۳۸۱</option>
 <option>۱۳۸۰</option>
-<option>سایر</option>
 
 </select>
 
 </label>
 
 
-
 <label>
-
 تیپ خودرو
 
 <select id="trim">
 
-<option value="">
-انتخاب تیپ
-</option>
+<option value="">انتخاب تیپ</option>
 
 <option>دنده‌ای</option>
 <option>اتوماتیک</option>
@@ -649,43 +575,36 @@ placeholder="09xxxxxxxxx"
 </label>
 
 
-
 <label>
-
 کارکرد خودرو
 
 <input
 id="km"
 inputmode="numeric"
 placeholder="مثلاً 125,000"
-oninput="formatKilometer(this)"
+oninput="formatKm(this)"
 >
 
 </label>
 
 
-
 <label>
-
 رنگ خودرو
 
 <select id="color">
 
-<option value="">
-انتخاب رنگ
-</option>
+<option value="">انتخاب رنگ</option>
 
 <option>سفید</option>
 <option>مشکی</option>
-<option>خاکستری</option>
 <option>نقره‌ای</option>
+<option>خاکستری</option>
 <option>آبی</option>
 <option>قرمز</option>
 <option>سرمه‌ای</option>
 <option>قهوه‌ای</option>
 <option>طلایی</option>
 <option>سبز</option>
-<option>زرد</option>
 <option>سایر</option>
 
 </select>
@@ -693,10 +612,8 @@ oninput="formatKilometer(this)"
 </label>
 
 
-
 <label>
-
-وضعیت خودرو
+توضیحات خودرو
 
 <textarea
 id="condition"
@@ -707,8 +624,7 @@ placeholder="توضیحات مهم درباره خودرو، تصادف، رنگ
 </label>
 
 
-
-<div id="exchangeExtra">
+<div id="exchangeBox">
 
 
 <div class="title">
@@ -716,26 +632,18 @@ placeholder="توضیحات مهم درباره خودرو، تصادف، رنگ
 </div>
 
 
-
 <label>
-
 برند خودروی موردنظر
 
 <select id="wantedBrand">
 
-<option value="">
-انتخاب برند
-</option>
+<option value="">انتخاب برند</option>
 
 <option>ایران خودرو</option>
 <option>سایپا</option>
 <option>مدیران خودرو</option>
 <option>کرمان موتور</option>
 <option>بهمن موتور</option>
-<option>فونیکس</option>
-<option>چری</option>
-<option>ام وی ام</option>
-<option>جک</option>
 <option>کیا</option>
 <option>هیوندای</option>
 <option>تویوتا</option>
@@ -743,42 +651,39 @@ placeholder="توضیحات مهم درباره خودرو، تصادف، رنگ
 <option>مزدا</option>
 <option>رنو</option>
 <option>پژو</option>
-<option>سایر</option>
+<option>ام وی ام</option>
+<option>جک</option>
+<option>فونیکس</option>
+<option>چری</option>
 
 </select>
 
 </label>
 
 
-
 <label>
-
-مدل خودروی موردنظر
+مدل موردنظر
 
 <input
 id="wantedCar"
 placeholder="مثلاً تویوتا کرولا"
-/>
+>
 
 </label>
 
 
-
 <label>
-
-بودجه یا مبلغ تکمیلی
+مبلغ تکمیلی
 
 <input
 id="budget"
-inputmode="numeric"
 placeholder="مثلاً ۳۰۰ میلیون تومان"
-/>
+>
 
 </label>
 
 
 </div>
-
 
 
 <button
@@ -793,13 +698,12 @@ onclick="goBooking()"
 
 </div>
 
-</section>
+</div>
 
 
 
-<!-- زمان کارشناسی -->
+<div id="booking" class="hidden">
 
-<section id="booking" class="hidden">
 
 <div class="title">
 ۲. زمان کارشناسی
@@ -816,30 +720,17 @@ onclick="goBooking()"
 </div>
 
 
-
 <label>
 
 تاریخ موردنظر
 
-<div
-id="jalaliCalendar"
-class="jalali-calendar"
-></div>
+<div id="calendar" class="calendar"></div>
 
-<input
-type="hidden"
-id="date"
->
-
-<div
-id="selectedDateText"
-class="selected-date-text"
->
+<div id="selectedDate" class="selected-date">
 لطفاً تاریخ کارشناسی را انتخاب کنید.
 </div>
 
 </label>
-
 
 
 <div class="title">
@@ -847,84 +738,47 @@ class="selected-date-text"
 </div>
 
 
-
 <div class="slots">
 
 
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۰۹:۰۰
 </button>
 
-
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۱۰:۰۰
 </button>
 
-
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۱۱:۰۰
 </button>
 
-
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۱۲:۰۰
 </button>
 
-
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۱۳:۰۰
 </button>
 
-
-<button
-class="slot busy"
-disabled
->
+<button class="slot busy" disabled>
 ۱۴:۰۰
 </button>
 
-
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۱۵:۰۰
 </button>
 
-
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۱۶:۰۰
 </button>
 
-
-<button
-class="slot"
-onclick="pick(this)"
->
+<button class="slot" onclick="selectTime(this)">
 ۱۷:۰۰
 </button>
 
 
 </div>
-
 
 
 <button
@@ -937,7 +791,7 @@ onclick="submitRequest()"
 
 <button
 class="btn secondary"
-onclick="backToForm()"
+onclick="backForm()"
 >
 بازگشت
 </button>
@@ -945,13 +799,11 @@ onclick="backToForm()"
 
 </div>
 
-</section>
+</div>
 
 
 
-<!-- ثبت نهایی -->
-
-<section id="done" class="hidden">
+<div id="done" class="hidden">
 
 
 <div class="card success">
@@ -960,20 +812,15 @@ onclick="backToForm()"
 ✅
 </div>
 
-
 <h1>
 درخواست شما ثبت شد
 </h1>
 
-
 <div class="muted">
-
 درخواست شما با موفقیت ثبت شد و همکاران سوییچ به سوییچ برای هماهنگی با شما تماس می‌گیرند.
-
 </div>
 
 </div>
-
 
 
 <div class="card">
@@ -981,65 +828,43 @@ onclick="backToForm()"
 
 <div class="row">
 
-<span>
-کد پیگیری
-</span>
+<span>کد پیگیری</span>
 
-<b id="tracking">
-STW-00126
-</b>
+<b id="tracking"></b>
 
 </div>
 
 
-
 <div class="row">
 
-<span>
-نوع درخواست
-</span>
+<span>نوع درخواست</span>
 
-<b id="doneType">
-فروش خودرو
-</b>
+<b id="doneType"></b>
 
 </div>
 
 
-
 <div class="row">
 
-<span>
-تاریخ کارشناسی
-</span>
+<span>تاریخ کارشناسی</span>
 
-<b id="doneDate">
--
-</b>
+<b id="doneDate"></b>
 
 </div>
 
 
-
 <div class="row">
 
-<span>
-ساعت کارشناسی
-</span>
+<span>ساعت کارشناسی</span>
 
-<b id="doneTime">
--
-</b>
+<b id="doneTime"></b>
 
 </div>
 
 
-
 <div class="row">
 
-<span>
-وضعیت
-</span>
+<span>وضعیت</span>
 
 <span class="badge">
 منتظر هماهنگی
@@ -1051,7 +876,6 @@ STW-00126
 </div>
 
 
-
 <div class="card">
 
 
@@ -1060,20 +884,13 @@ STW-00126
 </div>
 
 
-<div class="steps">
-
-
 <div class="step">
 
-<span class="stepnum">
-۱
-</span>
+<div class="step-number">۱</div>
 
 <div>
 
-<b>
-هماهنگی با شما
-</b>
+<b>هماهنگی با شما</b>
 
 <div class="muted">
 برای دریافت آدرس و هماهنگی کارشناسی با شما تماس می‌گیریم.
@@ -1084,18 +901,13 @@ STW-00126
 </div>
 
 
-
 <div class="step">
 
-<span class="stepnum">
-۲
-</span>
+<div class="step-number">۲</div>
 
 <div>
 
-<b>
-کارشناسی خودرو
-</b>
+<b>کارشناسی خودرو</b>
 
 <div class="muted">
 خودرو از نظر بدنه و وضعیت فنی بررسی می‌شود.
@@ -1106,18 +918,13 @@ STW-00126
 </div>
 
 
-
 <div class="step">
 
-<span class="stepnum">
-۳
-</span>
+<div class="step-number">۳</div>
 
 <div>
 
-<b>
-ارزیابی و پیشنهاد
-</b>
+<b>ارزیابی و پیشنهاد</b>
 
 <div class="muted">
 ارزش خودرو و شرایط معامله بررسی می‌شود.
@@ -1128,18 +935,13 @@ STW-00126
 </div>
 
 
-
 <div class="step">
 
-<span class="stepnum">
-۴
-</span>
+<div class="step-number">۴</div>
 
 <div>
 
-<b>
-ادامه معامله
-</b>
+<b>ادامه معامله</b>
 
 <div class="muted">
 در صورت تأیید شما، مراحل معامله و معاوضه ادامه پیدا می‌کند.
@@ -1152,9 +954,6 @@ STW-00126
 
 </div>
 
-</div>
-
-
 
 <button
 class="btn secondary"
@@ -1164,14 +963,12 @@ onclick="location.reload()"
 </button>
 
 
-</section>
+</div>
 
 
 
 <div class="footer">
-
 سوییچ به سوییچ | سرعت • امنیت • شفافیت
-
 </div>
 
 
@@ -1183,650 +980,475 @@ onclick="location.reload()"
 
 <script>
 
-/* =========================
-   متغیرهای اصلی
-========================= */
 
-let requestType = 'فروش خودرو';
+let requestType = "";
 
-let selectedTime = '';
+let selectedTime = "";
 
-let selectedJalaliDate = '';
+let selectedDate = "";
 
 let calendarYear = 1405;
 
-let calendarMonth = 1;
+let calendarMonth = 6;
 
 
 
-/* =========================
-   انتخاب نوع درخواست
-========================= */
+const monthNames = [
 
-function typeSelect(type){
+"فروردین",
+"اردیبهشت",
+"خرداد",
+"تیر",
+"مرداد",
+"شهریور",
+"مهر",
+"آبان",
+"آذر",
+"دی",
+"بهمن",
+"اسفند"
 
-requestType = type;
-
-const selected =
-document.getElementById('selected');
-
-selected.classList.remove('hidden');
-
-selected.innerText =
-'نوع درخواست انتخاب‌شده: ' + type;
-
-document
-.getElementById('form')
-.classList.remove('hidden');
+];
 
 
-if(type === 'فروش خودرو'){
+const weekNames = [
 
-document
-.getElementById('exchangeExtra')
-.style.display = 'none';
+"شنبه",
+"یکشنبه",
+"دوشنبه",
+"سه‌شنبه",
+"چهارشنبه",
+"پنجشنبه",
+"جمعه"
 
-}else{
-
-document
-.getElementById('exchangeExtra')
-.style.display = 'block';
-
-}
-
-
-setTimeout(function(){
-
-document
-.getElementById('form')
-.scrollIntoView({
-behavior:'smooth'
-});
-
-},100);
-
-}
+];
 
 
 
-/* =========================
-   مدل‌های خودرو
-========================= */
+const models = {
 
-const carModels = {
-
-'ایران خودرو':[
-'پژو ۲۰۶',
-'پژو ۲۰۷',
-'پژو پارس',
-'دنا',
-'دنا پلاس',
-'سمند',
-'تارا',
-'رانا',
-'سورن',
-'هایما',
-'ری‌را'
+"ایران خودرو":[
+"پژو ۲۰۶",
+"پژو ۲۰۷",
+"پژو پارس",
+"دنا",
+"دنا پلاس",
+"تارا",
+"رانا",
+"سمند",
+"سورن",
+"هایما",
+"ری‌را"
 ],
 
-'سایپا':[
-'پراید',
-'تیبا',
-'تیبا ۲',
-'ساینا',
-'کوییک',
-'شاهین',
-'اطلس'
+"سایپا":[
+"پراید",
+"تیبا",
+"تیبا ۲",
+"ساینا",
+"کوییک",
+"شاهین",
+"اطلس"
 ],
 
-'مدیران خودرو':[
-'MVM X22',
-'MVM X33',
-'MVM X55',
-'MVM 315',
-'MVM 530',
-'فونیکس FX',
-'فونیکس تیگو ۷',
-'فونیکس تیگو ۸'
+"مدیران خودرو":[
+"MVM X22",
+"MVM X33",
+"MVM X55",
+"فونیکس FX",
+"تیگو ۷",
+"تیگو ۸"
 ],
 
-'کرمان موتور':[
-'جک J4',
-'جک S3',
-'جک S5',
-'KMC J7',
-'KMC T8',
-'KMC X5'
+"کرمان موتور":[
+"جک J4",
+"جک S3",
+"جک S5",
+"KMC J7",
+"KMC T8",
+"KMC X5"
 ],
 
-'بهمن موتور':[
-'فیدلیتی',
-'دیگنیتی',
-'رسپکت',
-'مزدا ۳',
-'کاپرا'
+"بهمن موتور":[
+"فیدلیتی",
+"دیگنیتی",
+"رسپکت",
+"مزدا ۳",
+"کاپرا"
 ],
 
-'کیا':[
-'سراتو',
-'اپتیما',
-'اسپورتیج',
-'سورنتو',
-'پیکانتو',
-'موهاوی'
+"کیا":[
+"سراتو",
+"اپتیما",
+"اسپورتیج",
+"سورنتو",
+"موهاوی"
 ],
 
-'هیوندای':[
-'اکسنت',
-'النترا',
-'سوناتا',
-'توسان',
-'سانتافه',
-'کونا',
-'آزرا'
+"هیوندای":[
+"اکسنت",
+"النترا",
+"سوناتا",
+"توسان",
+"سانتافه",
+"آزرا"
 ],
 
-'تویوتا':[
-'کرولا',
-'کمری',
-'راوفور',
-'پرادو',
-'هایلوکس',
-'یاریس'
+"تویوتا":[
+"کرولا",
+"کمری",
+"راوفور",
+"پرادو",
+"هایلوکس",
+"یاریس"
 ],
 
-'نیسان':[
-'ماکسیما',
-'مورانو',
-'قشقایی',
-'جوک',
-'پاترول'
+"نیسان":[
+"ماکسیما",
+"مورانو",
+"قشقایی",
+"جوک",
+"پاترول"
 ],
 
-'مزدا':[
-'مزدا ۳',
-'مزدا ۲',
-'CX-5'
+"مزدا":[
+"مزدا ۳",
+"مزدا ۲",
+"CX-5"
 ],
 
-'رنو':[
-'ساندرو',
-'استپ‌وی',
-'تندر ۹۰',
-'مگان',
-'داستر',
-'کپچر'
+"رنو":[
+"ساندرو",
+"استپ‌وی",
+"تندر ۹۰",
+"مگان",
+"داستر",
+"کپچر"
 ],
 
-'پژو':[
-'پژو ۲۰۶',
-'پژو ۲۰۷',
-'پژو ۴۰۵',
-'پژو پارس',
-'پژو ۵۰۸'
+"پژو":[
+"۲۰۶",
+"۲۰۷",
+"۴۰۵",
+"پارس",
+"۵۰۸"
 ],
 
-'جک':[
-'J4',
-'S3',
-'S5'
+"ام وی ام":[
+"X22",
+"X33",
+"X55",
+"315"
 ],
 
-'ام وی ام':[
-'X22',
-'X33',
-'X55',
-'315'
+"جک":[
+"J4",
+"S3",
+"S5"
+],
+
+"فونیکس":[
+"FX",
+"تیگو ۷",
+"تیگو ۸"
+],
+
+"چری":[
+"آریزو ۵",
+"آریزو ۶",
+"تیگو ۷"
 ]
 
 };
 
 
 
-function updateModels(){
+function chooseType(type){
+
+requestType = type;
+
+document
+.getElementById("selectedType")
+.classList.remove("hidden");
+
+document
+.getElementById("selectedType")
+.innerText =
+"نوع درخواست انتخاب‌شده: " + type;
+
+document
+.getElementById("form")
+.classList.remove("hidden");
+
+if(type === "فروش خودرو"){
+
+document
+.getElementById("exchangeBox")
+.style.display = "none";
+
+}else{
+
+document
+.getElementById("exchangeBox")
+.style.display = "block";
+
+}
+
+document
+.getElementById("form")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+
+function loadModels(){
 
 const brand =
-document.getElementById('brand').value;
+document.getElementById("brand").value;
 
 const model =
-document.getElementById('model');
+document.getElementById("model");
 
 model.innerHTML =
 '<option value="">انتخاب مدل</option>';
 
-if(carModels[brand]){
+if(models[brand]){
 
-carModels[brand].forEach(function(item){
+models[brand].forEach(function(name){
 
 const option =
-document.createElement('option');
+document.createElement("option");
 
-option.value = item;
+option.value = name;
 
-option.textContent = item;
+option.textContent = name;
 
 model.appendChild(option);
 
 });
 
-}else{
-
-model.innerHTML =
-'<option value="">مدل را انتخاب کنید</option>';
-
 }
 
 }
 
 
 
-/* =========================
-   فرمت کیلومتر
-========================= */
+function formatKm(input){
 
-function formatKilometer(input){
-
-let value = input.value;
-
-value = value.replace(/[^\d]/g,'');
+let value =
+input.value.replace(/\D/g,"");
 
 if(value){
 
-value =
-Number(value).toLocaleString('en-US');
-
-}
-
-input.value = value;
-
-}
-
-
-
-/* =========================
-   تقویم شمسی
-========================= */
-
-const weekDays = [
-'شنبه',
-'یکشنبه',
-'دوشنبه',
-'سه‌شنبه',
-'چهارشنبه',
-'پنجشنبه',
-'جمعه'
-];
-
-
-const jalaliMonths = [
-'فروردین',
-'اردیبهشت',
-'خرداد',
-'تیر',
-'مرداد',
-'شهریور',
-'مهر',
-'آبان',
-'آذر',
-'دی',
-'بهمن',
-'اسفند'
-];
-
-
-
-function jalaliMonthDays(year,month){
-
-if(month <= 6){
-
-return 31;
-
-}
-
-if(month <= 11){
-
-return 30;
-
-}
-
-return isJalaliLeapYear(year) ? 30 : 29;
-
-}
-
-
-
-function isJalaliLeapYear(year){
-
-return [
-1391,
-1395,
-1399,
-1403,
-1408,
-1412,
-1416,
-1420,
-1424,
-1428,
-1432,
-1436,
-1440
-].includes(year);
-
-}
-
-
-
-/*
-تبدیل شمسی به میلادی
-*/
-
-function jalaliToGregorian(jy,jm,jd){
-
-jy = Number(jy) - 979;
-
-jm = Number(jm) - 1;
-
-jd = Number(jd) - 1;
-
-let jDayNo =
-365 * jy +
-Math.floor(jy / 33) * 8 +
-Math.floor((jy % 33 + 3) / 4);
-
-if(jm < 6){
-
-jDayNo += jm * 31;
+input.value =
+Number(value).toLocaleString("en-US");
 
 }else{
 
-jDayNo += jm * 30 + 6;
-
-}
-
-jDayNo += jd;
-
-let gDayNo =
-jDayNo + 79;
-
-let gy =
-1600 +
-400 *
-Math.floor(gDayNo / 146097);
-
-gDayNo %= 146097;
-
-let leap = true;
-
-if(gDayNo >= 36525){
-
-gDayNo--;
-
-gy +=
-100 *
-Math.floor(gDayNo / 36524);
-
-gDayNo %= 36524;
-
-if(gDayNo >= 365){
-
-gDayNo++;
-
-}else{
-
-leap = false;
+input.value = "";
 
 }
 
 }
 
-gy +=
-4 *
-Math.floor(gDayNo / 1461);
 
-gDayNo %= 1461;
 
-if(gDayNo >= 366){
+function goBooking(){
 
-leap = false;
+const name =
+document.getElementById("name").value.trim();
 
-gDayNo--;
+const phone =
+document.getElementById("phone").value.trim();
 
-gy +=
-Math.floor(gDayNo / 365);
+const brand =
+document.getElementById("brand").value;
 
-gDayNo %= 365;
+const model =
+document.getElementById("model").value;
 
-}
+const year =
+document.getElementById("year").value;
 
-let gd =
-gDayNo + 1;
 
-const monthDays =
-[
-31,
-(leap ? 29 : 28),
-31,
-30,
-31,
-30,
-31,
-31,
-30,
-31,
-30,
-31
-];
-
-let gm = 0;
-
-while(
-gm < 12 &&
-gd > monthDays[gm]
+if(
+!name ||
+!phone ||
+!brand ||
+!model ||
+!year
 ){
 
-gd -= monthDays[gm];
-
-gm++;
-
-}
-
-return {
-year:gy,
-month:gm + 1,
-day:gd
-};
-
-}
-
-
-
-/* =========================
-   نام روز هفته
-========================= */
-
-function getWeekDay(jy,jm,jd){
-
-const g =
-jalaliToGregorian(
-jy,
-jm,
-jd
+alert(
+"لطفاً نام، شماره موبایل، برند، مدل و سال ساخت را کامل انتخاب کنید."
 );
-
-const date =
-new Date(
-g.year,
-g.month - 1,
-g.day
-);
-
-const jsDay =
-date.getDay();
-
-const index =
-(jsDay + 1) % 7;
-
-return weekDays[index];
-
-}
-
-
-
-/* =========================
-   نمایش تقویم
-========================= */
-
-function renderJalaliCalendar(){
-
-const calendar =
-document.getElementById(
-'jalaliCalendar'
-);
-
-if(!calendar){
 
 return;
 
 }
 
 
-let html = '';
+document
+.getElementById("form")
+.classList.add("hidden");
 
-html +=
-'<div class="calendar-header">';
+document
+.getElementById("booking")
+.classList.remove("hidden");
+
+renderCalendar();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+
+function selectTime(button){
+
+document
+.querySelectorAll(".slot")
+.forEach(function(item){
+
+item.classList.remove("selected");
+
+});
+
+button.classList.add("selected");
+
+selectedTime =
+button.innerText;
+
+}
+
+
+
+function renderCalendar(){
+
+const calendar =
+document.getElementById("calendar");
+
+let html = "";
+
+
+html += '<div class="calendar-top">';
 
 html +=
 '<button type="button" onclick="changeMonth(-1)">‹</button>';
 
 html +=
 '<div class="calendar-title">' +
-jalaliMonths[calendarMonth - 1] +
-' ' +
+monthNames[calendarMonth - 1] +
+" " +
 calendarYear +
-'</div>';
+"</div>";
 
 html +=
 '<button type="button" onclick="changeMonth(1)">›</button>';
 
-html +=
-'</div>';
+html += "</div>";
 
 
-html +=
-'<div class="calendar-weekdays">';
+html += '<div class="weekdays">';
 
-weekDays.forEach(function(day){
+weekNames.forEach(function(day){
 
 html +=
-'<div>' +
+"<div>" +
 day.substring(0,2) +
-'</div>';
+"</div>";
 
 });
 
-html +=
-'</div>';
+html += "</div>";
 
 
-html +=
-'<div class="calendar-days">';
+html += '<div class="days">';
 
 
-/*
-تعیین جایگاه روز اول ماه
-*/
+let startDay = 0;
 
-const firstGregorian =
-jalaliToGregorian(
-calendarYear,
-calendarMonth,
-1
-);
-
-const firstDate =
-new Date(
-firstGregorian.year,
-firstGregorian.month - 1,
-firstGregorian.day
-);
-
-const firstDay =
-(firstDate.getDay() + 1) % 7;
+let totalDays = 31;
 
 
-/*
-خانه‌های خالی
-*/
+if(calendarMonth >= 7){
 
-for(let i = 0; i < firstDay; i++){
+totalDays = 30;
 
-html +=
-'<div></div>';
+}
+
+
+if(calendarMonth === 12){
+
+totalDays = 29;
 
 }
 
 
 /*
-روزهای ماه
+تقویم ساده و ثابت
 */
 
-const totalDays =
-jalaliMonthDays(
-calendarYear,
-calendarMonth
-);
+for(let i=0;i<startDay;i++){
+
+html += "<div></div>";
+
+}
 
 
 for(
-let day = 1;
-day <= totalDays;
+let day=1;
+day<=totalDays;
 day++
 ){
 
-let selectedClass = '';
+let key =
+calendarYear +
+"/" +
+calendarMonth +
+"/" +
+day;
 
-if(
-selectedJalaliDate ===
-calendarYear + '/' +
-calendarMonth + '/' +
-day
-){
+let cls = "day";
 
-selectedClass =
-' selected';
+if(key === selectedDate){
+
+cls += " selected";
 
 }
 
-
 html +=
-'<button type="button" class="jalali-day' +
-selectedClass +
-'" onclick="selectJalaliDate(' +
+
+'<button type="button" class="' +
+cls +
+'" onclick="chooseDate(' +
 calendarYear +
 ',' +
 calendarMonth +
 ',' +
 day +
 ')">' +
+
 day +
-'</button>';
+
+"</button>";
 
 }
 
 
-html +=
-'</div>';
+html += "</div>";
 
 calendar.innerHTML = html;
 
 }
 
 
-
-/* =========================
-   تغییر ماه
-========================= */
 
 function changeMonth(direction){
 
@@ -1851,271 +1473,47 @@ calendarYear--;
 }
 
 
-renderJalaliCalendar();
+renderCalendar();
 
 }
 
 
 
-/* =========================
-   انتخاب تاریخ
-========================= */
+function chooseDate(year,month,day){
 
-function selectJalaliDate(year,month,day){
-
-selectedJalaliDate =
-year + '/' +
-month + '/' +
+selectedDate =
+year +
+"/" +
+month +
+"/" +
 day;
 
 
-const weekDay =
-getWeekDay(
-year,
-month,
-day
-);
-
-
-const monthName =
-jalaliMonths[month - 1];
-
-
-document.getElementById('date').value =
-year + '/' +
-month + '/' +
-day;
-
-
-document.getElementById(
-'selectedDateText'
-).innerText =
-'تاریخ انتخاب‌شده: ' +
-weekDay +
-' ' +
+document
+.getElementById("selectedDate")
+.innerText =
+"تاریخ انتخاب‌شده: " +
+weekNames[(day - 1) % 7] +
+" " +
 day +
-' ' +
-monthName +
-' ' +
+" " +
+monthNames[month - 1] +
+" " +
 year;
 
 
-renderJalaliCalendar();
+renderCalendar();
 
 }
 
 
-
-/* =========================
-   تاریخ امروز
-========================= */
-
-function getTodayJalali(){
-
-/*
-برای شروع تقویم روی سال ۱۴۰۵
-و ماه جاری شمسی قرار می‌گیرد.
-*/
-
-const today =
-new Date();
-
-const gy =
-today.getFullYear();
-
-const gm =
-today.getMonth() + 1;
-
-const gd =
-today.getDate();
-
-
-/*
-تبدیل تقریبی میلادی به شمسی
-*/
-
-let jy =
-gy - 621;
-
-let jm;
-
-let jd;
-
-
-if(gm <= 3){
-
-jm =
-gm + 9;
-
-}else{
-
-jm =
-gm - 3;
-
-}
-
-
-if(gm <= 3){
-
-jy--;
-
-}
-
-
-jd =
-gd;
-
-
-return {
-year:jy,
-month:jm,
-day:jd
-};
-
-}
-
-
-
-/* =========================
-   شروع تقویم
-========================= */
-
-(function(){
-
-const today =
-getTodayJalali();
-
-calendarYear =
-today.year;
-
-calendarMonth =
-today.month;
-
-
-/*
-محدوده مناسب برای سال جاری
-*/
-
-if(
-calendarYear < 1400 ||
-calendarYear > 1450
-){
-
-calendarYear = 1405;
-
-calendarMonth = 1;
-
-}
-
-
-renderJalaliCalendar();
-
-})();
-
-
-
-/* =========================
-   ادامه فرم
-========================= */
-
-function goBooking(){
-
-const name =
-document.getElementById('name')
-.value.trim();
-
-const phone =
-document.getElementById('phone')
-.value.trim();
-
-const brand =
-document.getElementById('brand')
-.value;
-
-const model =
-document.getElementById('model')
-.value;
-
-const year =
-document.getElementById('year')
-.value;
-
-
-if(
-!name ||
-!phone ||
-!brand ||
-!model ||
-!year
-){
-
-alert(
-'لطفاً نام، شماره موبایل، برند، مدل و سال ساخت خودرو را انتخاب کنید.'
-);
-
-return;
-
-}
-
-
-document
-.getElementById('form')
-.classList.add('hidden');
-
-
-document
-.getElementById('booking')
-.classList.remove('hidden');
-
-
-window.scrollTo({
-top:0,
-behavior:'smooth'
-});
-
-}
-
-
-
-/* =========================
-   انتخاب ساعت
-========================= */
-
-function pick(el){
-
-document
-.querySelectorAll('.slot')
-.forEach(function(x){
-
-x.classList.remove('selected');
-
-});
-
-
-el.classList.add('selected');
-
-selectedTime =
-el.innerText;
-
-}
-
-
-
-/* =========================
-   ثبت درخواست
-========================= */
 
 function submitRequest(){
 
-const date =
-document.getElementById('date')
-.value;
-
-
-if(!date){
+if(!selectedDate){
 
 alert(
-'لطفاً تاریخ کارشناسی را انتخاب کنید.'
+"لطفاً تاریخ کارشناسی را انتخاب کنید."
 );
 
 return;
@@ -2126,7 +1524,7 @@ return;
 if(!selectedTime){
 
 alert(
-'لطفاً ساعت کارشناسی را انتخاب کنید.'
+"لطفاً ساعت کارشناسی را انتخاب کنید."
 );
 
 return;
@@ -2134,85 +1532,77 @@ return;
 }
 
 
-document.getElementById(
-'doneType'
-).innerText =
+document
+.getElementById("doneType")
+.innerText =
 requestType;
 
+document
+.getElementById("doneDate")
+.innerText =
+document
+.getElementById("selectedDate")
+.innerText
+.replace("تاریخ انتخاب‌شده: ","");
 
-document.getElementById(
-'doneDate'
-).innerText =
-document.getElementById(
-'selectedDateText'
-).innerText.replace(
-'تاریخ انتخاب‌شده: ',
-''
-);
-
-
-document.getElementById(
-'doneTime'
-).innerText =
+document
+.getElementById("doneTime")
+.innerText =
 selectedTime;
 
 
-const number =
+const code =
+"STW-" +
 Math.floor(
 10000 +
 Math.random() * 90000
 );
 
 
-document.getElementById(
-'tracking'
-).innerText =
-'STW-' + number;
+document
+.getElementById("tracking")
+.innerText =
+code;
 
 
 document
-.getElementById('booking')
-.classList.add('hidden');
-
+.getElementById("booking")
+.classList.add("hidden");
 
 document
-.getElementById('done')
-.classList.remove('hidden');
-
+.getElementById("done")
+.classList.remove("hidden");
 
 window.scrollTo({
 top:0,
-behavior:'smooth'
+behavior:"smooth"
 });
 
 }
 
 
 
-/* =========================
-   برگشت
-========================= */
-
-function backToForm(){
+function backForm(){
 
 document
-.getElementById('booking')
-.classList.add('hidden');
-
+.getElementById("booking")
+.classList.add("hidden");
 
 document
-.getElementById('form')
-.classList.remove('hidden');
-
+.getElementById("form")
+.classList.remove("hidden");
 
 window.scrollTo({
 top:0,
-behavior:'smooth'
+behavior:"smooth"
 });
 
 }
+
 
 </script>
 
+
 </body>
-  </html>
+
+</html>
