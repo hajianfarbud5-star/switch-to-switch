@@ -278,6 +278,58 @@ color:#91a0ab;
 padding:20px 0;
 }
 </style>
+  .jalali-calendar
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:9px;{
+margin-top:10px;
+}
+
+.jalali-day{
+border:1px solid #d4e2eb;
+background:#f8fbfd;
+border-radius:12px;
+padding:12px 6px;
+font-family:inherit;
+color:#31566e;
+cursor:pointer;
+}
+
+.jalali-day span{
+display:block;
+font-size:11px;
+color:#718596;
+margin-bottom:5px;
+}
+
+.jalali-day b{
+display:block;
+font-size:20px;
+color:#0c6f9f;
+}
+
+.jalali-day small{
+display:block;
+font-size:10px;
+margin-top:4px;
+}
+
+.jalali-day.selected{
+background:#dff3ff;
+border-color:#159be7;
+box-shadow:0 0 0 2px rgba(21,155,231,.12);
+}
+
+.selected-date-text{
+margin-top:10px;
+padding:11px;
+background:#edf8ff;
+border:1px solid #c9e9fb;
+border-radius:10px;
+font-size:12px;
+color:#17628b;
+font-weight:bold;
+}
 </head>
 
 <body>
@@ -538,7 +590,139 @@ padding:20px 0;
 
 
 <script>
+const weekDays = [
+'شنبه',
+'یکشنبه',
+'دوشنبه',
+'سه‌شنبه',
+'چهارشنبه',
+'پنجشنبه',
+'جمعه'
+];
 
+const jalaliMonths = [
+'فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور',
+'مهر','آبان','آذر','دی','بهمن','اسفند'
+];
+
+function gregorianToJalali(gy,gm,gd){
+
+let g_d_m=[0,31,59,90,120,151,181,212,243,273,304,334];
+let jy=(gy<=1600)?0:979;
+
+gy-= (gy<=1600)?621:1600;
+
+let gy2=(gm>2)?gy+1:gy;
+
+let days=
+365*gy+
+Math.floor((gy2+3)/4)-
+Math.floor((gy2+99)/100)+
+Math.floor((gy2+399)/400)-
+80+
+gd+
+g_d_m[gm-1];
+
+jy+=33*Math.floor(days/12053);
+days%=12053;
+
+jy+=4*Math.floor(days/1461);
+days%=1461;
+
+if(days>365){
+jy+=Math.floor((days-1)/365);
+days=(days-1)%365;
+}
+
+let jm=(days<186)?
+1+Math.floor(days/31):
+7+Math.floor((days-186)/30);
+
+let jd=1+
+((days<186)?days%31:(days-186)%30);
+
+return [jy,jm,jd];
+}
+
+function getTodayJalali(){
+
+const now=new Date();
+
+return gregorianToJalali(
+now.getFullYear(),
+now.getMonth()+1,
+now.getDate()
+);
+
+}
+
+function renderJalaliCalendar(){
+
+const calendar=document.getElementById('jalaliCalendar');
+
+if(!calendar) return;
+
+const today=getTodayJalali();
+
+let html='';
+
+for(let i=0;i<14;i++){
+
+let date=new Date();
+
+date.setDate(date.getDate()+i);
+
+let jy=gregorianToJalali(
+date.getFullYear(),
+date.getMonth()+1,
+date.getDate()
+);
+
+let dayIndex=date.getDay();
+
+let weekIndex=(dayIndex+1)%7;
+
+let dateValue=
+jy[0]+'-'+
+String(jy[1]).padStart(2,'0')+'-'+
+String(jy[2]).padStart(2,'0');
+
+html+=`
+<button
+type="button"
+class="jalali-day"
+onclick="selectJalaliDate('${dateValue}','${weekDays[weekIndex]} ${jy[2]} ${jalaliMonths[jy[1]-1]} ${jy[0]}')">
+
+<span>${weekDays[weekIndex]}</span>
+<b>${jy[2]}</b>
+<small>${jalaliMonths[jy[1]-1]}</small>
+
+</button>
+`;
+
+}
+
+calendar.innerHTML=html;
+
+}
+
+function selectJalaliDate(value,text){
+
+document.getElementById('date').value=value;
+
+document.querySelectorAll('.jalali-day')
+.forEach(function(x){
+x.classList.remove('selected');
+});
+
+event.currentTarget.classList.add('selected');
+
+document.getElementById('selectedDateText').innerText=
+'تاریخ انتخاب‌شده: '+text;
+
+}
+
+renderJalaliCalendar();
 let requestType = 'فروش خودرو';
 let selectedTime = '';
 
